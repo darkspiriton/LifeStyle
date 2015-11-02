@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.tesis2.lifestyle.Registro"
+android:background="#fff2f0e8"
+android:visibility="visible">
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:background="#fff2f0e8">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="12"
+            android:id="@+id/etName"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:hint="Primer Nombre"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="12"
+            android:id="@+id/etLastName"
+            android:layout_below="@+id/etName"
+            android:layout_centerHorizontal="true"
+            android:hint="Apellido"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="12"
+            android:id="@+id/etUserRegister"
+            android:layout_below="@+id/etLastName"
+            android:layout_centerHorizontal="true"
+            android:hint="Usuario"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="12"
+            android:id="@+id/etEmail"
+            android:layout_below="@+id/etUserRegister"
+            android:layout_centerHorizontal="true"
+            android:hint="Correo"
+            android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="12"
+            android:id="@+id/etPassRegister"
+            android:layout_below="@+id/etEmail"
+            android:layout_centerHorizontal="true"
+            android:hint="Contraseña"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="12"
+            android:id="@+id/etPass2Register"
+            android:layout_below="@+id/etPassRegister"
+            android:layout_centerHorizontal="true"
+            android:hint="Re-Contraseña"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/tv2"
+            android:layout_below="@+id/etPassRegister"
+            android:layout_marginTop="40dp"
+            android:visibility="invisible"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tv2"
+            android:layout_marginTop="40dp"
+            android:visibility="invisible"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Mediante la creación de una cuenta, usted acepta nuestros Términos de Servicio y Política de Privacidad"
+            android:id="@+id/tvterminos"
+            android:layout_below="@+id/tv2"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="20dp"/>
+
+    </RelativeLayout>
+
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Crear cuenta"
+    android:id="@+id/butCreate"
+    android:layout_above="@+id/butCancel"
+    android:layout_centerHorizontal="true"
+    android:background="#4bb53f"
+    android:textColor="#ffffffff" />
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Cancelar"
+    android:id="@+id/butCancel"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:background="#ffff6f6c"
+    android:textColor="#ffffffff" />
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LifeStyle</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="navegacion_array">
+        <item>Actividades</item>
+        <item>Perfil</item>
+        <item>Doctores</item>
+        <item>Foro</item>
+        <item>Cerrar Sesión</item>
+    </string-array>
+    <string name="parse_app_id">KdsLvRhTcOwaI7g6DUSpmh5kMlvI9EYHobtd0Wxi</string>
+    <string name="parse_client_id">w7UH4OKtYcdYJBNOYm2usz0AV7FXnA99Jxyoks8J</string>
+    <string name="title_activity_risk">Nivel de Riesgo</string>
+</resources>
