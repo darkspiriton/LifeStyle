@@ -161,7 +161,7 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Finalizar"
+            android:text="Calcular Nivel de Riesgo"
             android:id="@+id/butSendE"
             android:layout_below="@+id/r9"
             android:layout_centerHorizontal="true"

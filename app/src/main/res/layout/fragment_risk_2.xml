@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="4.¿Perímetro de cintura medido por debajo de las costillas?"
+            android:text="4.¿Perímetro de cintura medido por debajo de las costillas? Hombre:H, Mujeres:M"
             android:id="@+id/tvP4"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -40,7 +40,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menos de 94 cm"
+                android:text="Menos de 94 cm H/ 80 cm M"
                 android:id="@+id/r4_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -49,7 +49,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 94-102 cm"
+                android:text="Entre 94-02 cm H / 80-88 cm M"
                 android:id="@+id/r4_2"
                 android:layout_below="@+id/r4_1"
                 android:layout_alignParentLeft="true"
@@ -59,7 +59,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mas de 102 cm"
+                android:text="Mas de 102 cm H / 88 cm M"
                 android:id="@+id/r4_3"
                 android:layout_below="@+id/r4_2"
                 android:layout_alignParentLeft="true"

@@ -12,6 +12,6 @@
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello_world" />
+        android:text="RESUMEN DE ACTIVIDADES" />
 
 </RelativeLayout>

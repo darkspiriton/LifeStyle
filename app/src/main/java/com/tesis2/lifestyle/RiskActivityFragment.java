@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -139,42 +143,65 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
 
             if (pesoAux.equals("") || alturaAux.equals("") || r1==6 || r4 ==6 || r5 ==6 || r6==6 || r7==6 || r8==6 || r9==6 || r2.equals("")){
                 Context context = view.getContext();
-                CharSequence text = "Falta completar" ;
+                CharSequence text = "El cuestionario debe estar completo para cancular su nivel de riesgo" ;
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             } else{
                 double peso,altura;
-                peso = Double.parseDouble(pesoAux);
-                altura = Double.parseDouble(alturaAux);
-                IMC=peso/(altura*altura);
 
-                if (IMC<25 ){
-                    r3=0;
+                try{
+                    peso = Double.parseDouble(pesoAux);
+                    altura = Double.parseDouble(alturaAux);
+
+                    IMC=peso/(altura*altura);
+
+                    if (IMC<25 ){
+                        r3=0;
+                    }
+                    if (25<=IMC &&IMC<=30) {
+                        r3=1;
+                    }
+                    if (IMC>30) {
+                        r3=3;
+                    }
+
+                    //falta guardar el resultado parse
+                    //falta obtener recomendaciones
+                    //obtener nivel de riesgo
+                    //mostrar resultado
+
+                    int riesgo = r1+r3+r4+r5+r6+r7+r8+r9;
+                    Context context = view.getContext();
+                    CharSequence text = "Boton Finalizar Encuesta - IMC: "+ r1+r2+r3+r4+r5+r6+r7+r8+r9 + "total"+riesgo ;
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                    /**
+                    ParseUser currentUser = ParseUser.getCurrentUser();
+                    currentUser.put("evaluation",true);
+
+                    currentUser.signUpInBackground(new SignUpCallback() {
+                        public void done(ParseException e) {
+                            if (e == null) {
+
+                            } else {
+
+                            }
                         }
-                if (25<IMC) {
-                    r3=1;
+                    });
+                    **/
+                    Intent intent = new Intent(getActivity(),MenuActivity.class);
+                    startActivity(intent);
+
+                } catch (Exception e){
+                    Context context = view.getContext();
+                    CharSequence text = "Los valores de peso y talla no son numericos" ;
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
                 }
-                if (IMC>30) {
-                    r3=3;
-                }
-
-                //falta corregir valores IMC
-                //falta corregir lo de la mujer!!!!! Circunsferencia cintura
-                //falta guardar el resultado parse
-                //falta obtener recomendaciones
-                //obtener nivel de riesgo
-                //mostrar resultado
-
-                int riesgo = r1+r3+r4+r5+r6+r7+r8+r9;
-                Context context = view.getContext();
-                CharSequence text = "Boton Finalizar Encuesta - IMC: "+ r1+r2+r3+r4+r5+r6+r7+r8+r9 + "total"+riesgo ;
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-
-                Intent intent = new Intent(getActivity(),MenuActivity.class);
-                startActivity(intent);
 
             }
 

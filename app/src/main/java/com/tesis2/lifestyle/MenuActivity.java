@@ -2,6 +2,7 @@ package com.tesis2.lifestyle;
 
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
@@ -17,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -115,56 +117,47 @@ public class MenuActivity extends AppCompatActivity  {
         }
     }
 
-    /** Swaps fragments in the main content view */
     private void selectItem(int position) {
-        // Create a new fragment and specify the planet to show based on position
-        Fragment fragment = new PlanetFragment();
-        Bundle args = new Bundle();
-        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-        fragment.setArguments(args);
 
-        // Insert the fragment by replacing any existing fragment
-        //FragmentManager fragmentManager = getFragmentManager();
-        //fragmentManager.beginTransaction()
-        //        .replace(R.id.content_frame, fragment)
-        //        .commit();
+        if (position==0){
+            Context context = getApplicationContext();
+            CharSequence text = "Menu Principal" ;
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } if(position==1){
+            Context context = getApplicationContext();
+            CharSequence text = "Perfil" ;
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } if (position==2){
+            Context context = getApplicationContext();
+            CharSequence text = "Doctores" ;
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } if (position==3){
+            Context context = getApplicationContext();
+            CharSequence text = "Foro" ;
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        } if(position==4) {
+            Context context = getApplicationContext();
+            CharSequence text = "Cerrar Sesion" ;
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
 
-        ParseUser.logOut();
-        Intent intent = new Intent(this,DispatchActivity.class);
-        startActivity(intent);
-
+            ParseUser.logOut();
+            Intent intent = new Intent(this,DispatchActivity.class);
+            startActivity(intent);
+        }
 
         // Highlight the selected item, update the title, and close the drawer
         mDrawerList.setItemChecked(position, true);
         //setTitle(mNavegacion[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
-
-    /**
-     * Fragment that appears in the "content_frame", shows a planet
-     */
-    public static class PlanetFragment extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
-
-        public PlanetFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_menu, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
-            String planet = getResources().getStringArray(R.array.navegacion_array)[i];
-
-            //int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
-            //        "drawable", getActivity().getPackageName());
-
-           ((TextView) rootView.findViewById(R.id.text2)).setText(planet);
-            getActivity().setTitle(planet);
-            return rootView;
-        }
-    }
-
-
 }
