@@ -73,7 +73,9 @@ tools:context="com.tesis2.lifestyle.Login">
             android:focusableInTouchMode="false"
             android:layout_below="@+id/butLogin"
             android:linksClickable="false"
-            android:textColor="#4bb53f" />
+            android:textColor="#4bb53f"
+            android:layout_margin="16dp"/>
+
 
         <ImageView
             android:layout_width="wrap_content"

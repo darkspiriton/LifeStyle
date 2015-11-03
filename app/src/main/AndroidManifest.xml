@@ -30,14 +30,14 @@
         </activity>
         <activity android:name=".LifeStyleActivity" >
         </activity>
-        <activity android:name=".RiskActivity"
+        <activity
+            android:name=".RiskActivity"
             android:label="@string/title_activity_risk"
-            android:theme="@style/AppTheme"
-            android:parentActivityName="com.tesis2.lifestyle.DispatchActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.tesis2.lifestyle.DispatchActivity" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+
+        </activity>
+        <activity android:name=".ZoomOutPageTransformer" >
         </activity>
     </application>
 
 </manifest>
-

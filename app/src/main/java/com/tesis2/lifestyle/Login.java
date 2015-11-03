@@ -47,7 +47,7 @@ public class Login extends Activity implements View.OnClickListener {
                     if (userAux != null) {
                         Intent intent = new Intent();
                         intent.putExtra("user", userAux.getUsername());
-                        intent.setClass(Login.this, MenuActivity.class);
+                        intent.setClass(Login.this,DispatchActivity.class);
                         startActivity(intent);
 
                     } else {

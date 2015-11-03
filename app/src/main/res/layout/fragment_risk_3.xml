@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,38 +10,36 @@
     <!-- Dummy content. -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:paddingRight="16dp"
-        >
-
+       >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="1.¿Cuantos años tiene?"
-            android:id="@+id/tvP1"
-
+            android:text="7.¿Toma medicación para la hipertensión regularmente?"
+            android:id="@+id/tvP7"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/r1"
-            android:layout_below="@+id/tvP1"
+            android:id="@+id/r7"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="16dp">
-
+            android:layout_below="@+id/tvP7"
+            android:paddingLeft="16dp"
+            android:orientation="vertical">
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menos de 45 años"
-                android:id="@+id/r1_1"
+                android:text="Sí"
+                android:id="@+id/r7_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -48,68 +47,50 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 45 y 54 años"
-                android:id="@+id/r1_2"
-                android:layout_below="@+id/r1_1"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Entre 55 y 64 años"
-                android:id="@+id/r1_3"
-                android:layout_below="@+id/r1_2"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:checked="false" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mayor de 64 años"
-                android:id="@+id/r1_4"
-                android:layout_below="@+id/r1_3"
+                android:text="No"
+                android:id="@+id/r7_2"
+                android:layout_below="@+id/r7_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
         </RadioGroup>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El riesgo de desarrollar diabetes es superior a partir de los 45 años"
-            android:id="@+id/tvC1"
-            android:layout_below="@+id/r1"
+            android:text="La hipertensión, junto con el exceso  de grasas(colesterol, triglicéridos), la obesidad pueden favorecer el desarrollo de diabetes u otros enfermedades."
+            android:id="@+id/tvC7"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/r7"
             android:textColor="#A62A2B2D" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="2.¿Que sexo tiene?"
-            android:id="@+id/tvP2"
-            android:layout_below="@+id/tvC1"
+            android:text="8.¿Le han detectado alguna vez valores de glucosa altos?"
+            android:id="@+id/tvP8"
+            android:layout_below="@+id/tvC7"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f"
             android:layout_marginTop="16dp" />
+
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/r2"
-            android:layout_below="@+id/tvP2"
+            android:id="@+id/r8"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="16dp">
+            android:layout_below="@+id/tvP8"
+            android:paddingLeft="16dp"
+            android:orientation="vertical">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hombre"
-                android:id="@+id/rg1_1"
+                android:text="Sí"
+                android:id="@+id/r8_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -117,9 +98,9 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mujer"
-                android:id="@+id/r2_2"
-                android:layout_below="@+id/rg1_1"
+                android:text="No"
+                android:id="@+id/r8_2"
+                android:layout_below="@+id/r8_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -129,42 +110,63 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="3.Indice de Masa Corporal IMC"
-            android:id="@+id/tvP3"
-            android:layout_below="@+id/r2"
+            android:text="9.¿Se le ha diagnostivado diabetes a alguno de sus familiares?"
+            android:id="@+id/tvP9"
+            android:layout_below="@+id/r8"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f"
             android:layout_marginTop="16dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/r3_1"
-            android:hint="Peso (kg)"
-            android:layout_marginLeft="16dp"
-            android:layout_below="@+id/tvP3" />
+            android:id="@+id/r9"
+            android:layout_below="@+id/tvP9"
+            android:paddingLeft="16dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/r9_1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/r3_2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:hint="Altura (cm)"
-            android:layout_marginLeft="16dp"
-            android:layout_below="@+id/r3_1" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Si: abuelos, tios o primos"
+                android:id="@+id/r9_2"
+                android:layout_below="@+id/r9_1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sí: padres, hermanos o hijos"
+                android:id="@+id/r9_3"
+                android:layout_below="@+id/r6_2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false" />
+        </RadioGroup>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El sobrepeso aumenta el riesgo de adquirir diabetes."
-            android:id="@+id/tvC3"
-            android:layout_below="@+id/r3_2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#A62A2B2D" />
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Finalizar"
+            android:id="@+id/butSendE"
+            android:layout_below="@+id/r9"
+            android:layout_centerHorizontal="true"
+            android:background="#4bb53f"
+            android:textColor="#ffffffff" />
 
     </RelativeLayout>
 

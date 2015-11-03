@@ -79,7 +79,6 @@ android:visibility="visible">
             android:hint="Re-Contraseña"
             android:layout_marginTop="10dp"/>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
@@ -99,10 +98,14 @@ android:visibility="visible">
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Mediante la creación de una cuenta, usted acepta nuestros Términos de Servicio y Política de Privacidad"
             android:id="@+id/tvterminos"
-            android:layout_below="@+id/tv2"
+            android:layout_below="@+id/etPass2Register"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="16dp"
+            />
+
+
+
 
     </RelativeLayout>
 

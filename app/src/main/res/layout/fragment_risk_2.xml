@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,11 +10,12 @@
     <!-- Dummy content. -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:paddingRight="16dp"
+        tools:context="com.tesis2.lifestyle.RiskActivity"
         >
 
 
@@ -21,16 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="1.¿Cuantos años tiene?"
-            android:id="@+id/tvP1"
-
+            android:text="4.¿Perímetro de cintura medido por debajo de las costillas?"
+            android:id="@+id/tvP4"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f" />
-
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/r1"
-            android:layout_below="@+id/tvP1"
+            android:id="@+id/r4"
+            android:layout_below="@+id/tvP4"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -39,8 +40,8 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menos de 45 años"
-                android:id="@+id/r1_1"
+                android:text="Menos de 94 cm"
+                android:id="@+id/r4_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -48,9 +49,9 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 45 y 54 años"
-                android:id="@+id/r1_2"
-                android:layout_below="@+id/r1_1"
+                android:text="Entre 94-102 cm"
+                android:id="@+id/r4_2"
+                android:layout_below="@+id/r4_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -58,9 +59,40 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 55 y 64 años"
-                android:id="@+id/r1_3"
-                android:layout_below="@+id/r1_2"
+                android:text="Mas de 102 cm"
+                android:id="@+id/r4_3"
+                android:layout_below="@+id/r4_2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="5.¿Realiza habitualmente al menos 30 minutos de actividad física al día?"
+            android:id="@+id/tvP5"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#4bb53f"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/r4" />
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/r5"
+            android:layout_below="@+id/tvP5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sí"
+                android:id="@+id/r5_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -68,9 +100,9 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mayor de 64 años"
-                android:id="@+id/r1_4"
-                android:layout_below="@+id/r1_3"
+                android:text="No"
+                android:id="@+id/r5_2"
+                android:layout_below="@+id/r5_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
@@ -79,9 +111,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El riesgo de desarrollar diabetes es superior a partir de los 45 años"
-            android:id="@+id/tvC1"
-            android:layout_below="@+id/r1"
+            android:text="El sedentarismo es un factor de riesgo para desarrollar diabetes mientras que la actividad fisica regular es un factor de prevención."
+            android:id="@+id/tvC5"
+            android:layout_below="@+id/r5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#A62A2B2D" />
@@ -90,78 +122,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="2.¿Que sexo tiene?"
-            android:id="@+id/tvP2"
-            android:layout_below="@+id/tvC1"
+            android:text="6.¿Con qué frecuencia come verduras o frutas?"
+            android:id="@+id/tvP6"
+            android:layout_below="@+id/tvC5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f"
             android:layout_marginTop="16dp" />
+
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/r2"
-            android:layout_below="@+id/tvP2"
+            android:id="@+id/r6"
+            android:layout_below="@+id/tvP6"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="16dp">
-
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hombre"
-                android:id="@+id/rg1_1"
+                android:text="Sí"
+                android:id="@+id/r6_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
-
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mujer"
-                android:id="@+id/r2_2"
-                android:layout_below="@+id/rg1_1"
+                android:text="No"
+                android:id="@+id/r6_2"
+                android:layout_below="@+id/r6_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
-
         </RadioGroup>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="3.Indice de Masa Corporal IMC"
-            android:id="@+id/tvP3"
-            android:layout_below="@+id/r2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#4bb53f"
-            android:layout_marginTop="16dp" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/r3_1"
-            android:hint="Peso (kg)"
-            android:layout_marginLeft="16dp"
-            android:layout_below="@+id/tvP3" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/r3_2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:hint="Altura (cm)"
-            android:layout_marginLeft="16dp"
-            android:layout_below="@+id/r3_1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El sobrepeso aumenta el riesgo de adquirir diabetes."
-            android:id="@+id/tvC3"
-            android:layout_below="@+id/r3_2"
+            android:text="Una dieta equilibrada que incluye diariamente consumo de fruta y verduras, reduce el riesgo de diabetes."
+            android:id="@+id/tvC6"
+            android:layout_below="@+id/r6"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#A62A2B2D" />

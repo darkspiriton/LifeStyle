@@ -16,6 +16,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     Button butCreate, butCancel;
     EditText user,name,lastName,email, pass,pass2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +59,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                     usuario.setUsername(userAux.toLowerCase());
                     usuario.setEmail(emailAux.toLowerCase());
                     usuario.setPassword(passAux);
-                    usuario.put("fistName",nameAux);
+                    usuario.put("firstName",nameAux);
                     usuario.put("lastName",lastNameAux);
                     usuario.put("evaluation",false);
 
@@ -86,6 +87,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         }else{
             finish();
         }
-
     }
+
 }
