@@ -163,6 +163,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                 //falta corregir lo de la mujer!!!!! Circunsferencia cintura
                 //falta guardar el resultado parse
                 //falta obtener recomendaciones
+                //obtener nivel de riesgo
                 //mostrar resultado
 
                 int riesgo = r1+r3+r4+r5+r6+r7+r8+r9;
