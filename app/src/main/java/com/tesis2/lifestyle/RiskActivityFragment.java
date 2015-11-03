@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -166,34 +167,56 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                         r3=3;
                     }
 
-                    //falta guardar el resultado parse
-                    //falta obtener recomendaciones
-                    //obtener nivel de riesgo
-                    //mostrar resultado
-
                     int riesgo = r1+r3+r4+r5+r6+r7+r8+r9;
-                    Context context = view.getContext();
-                    CharSequence text = "Boton Finalizar Encuesta - IMC: "+ r1+r2+r3+r4+r5+r6+r7+r8+r9 + "total"+riesgo ;
-                    int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.show();
+                    int riskLevel=0;
 
-                    /**
+                    if (riesgo<7 ){
+                        riskLevel=1;
+                    }
+                    if (7<=riesgo &&riesgo<=11) {
+                        riskLevel=2;
+                    }
+                    if (12<=riesgo &&riesgo<=14) {
+                        riskLevel=3;
+                    }
+                    if (14<=riesgo &&riesgo<=20) {
+                        riskLevel=4;
+                    }
+                    if (riesgo>20) {
+                        riskLevel=5;
+                    }
+
+
                     ParseUser currentUser = ParseUser.getCurrentUser();
-                    currentUser.put("evaluation",true);
+                    currentUser.put("evaluation", true);
+                    currentUser.put("sex", r2);
+                    currentUser.put("riskLevel",riskLevel);
+                    currentUser.saveInBackground();
 
-                    currentUser.signUpInBackground(new SignUpCallback() {
-                        public void done(ParseException e) {
-                            if (e == null) {
+                    ParseObject risk = new ParseObject("Risk");
+                    risk.put("userId",currentUser.getObjectId());
+                    risk.put("user",currentUser.getUsername());
+                    risk.put("p1", r1);
+                    risk.put("p2", r2);
+                    risk.put("p3",r3);
+                    risk.put("p4",r4);
+                    risk.put("p5",r5);
+                    risk.put("p6",r6);
+                    risk.put("p7",r7);
+                    risk.put("p8",r8);
+                    risk.put("p9",r9);
+                    risk.put("result", riesgo);
+                    risk.put("evaluado", false);
+                    risk.put("riskLevel", riskLevel);
+                    risk.saveInBackground();
 
-                            } else {
-
-                            }
-                        }
-                    });
-                    **/
-                    Intent intent = new Intent(getActivity(),MenuActivity.class);
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(), ResultadoActivity.class);
                     startActivity(intent);
+
+                    //mostrar resultado
+                    //falta obtener recomendaciones
+
 
                 } catch (Exception e){
                     Context context = view.getContext();
@@ -206,7 +229,6 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
             }
 
         } else {
-            Context context=null;
             boolean checked = ((RadioButton) view).isChecked();
 
             // Check which radio button was clicked
