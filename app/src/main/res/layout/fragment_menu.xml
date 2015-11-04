@@ -8,10 +8,24 @@
     android:background="#fff2f0e8">
 
     <TextView
-        android:layout_below="@+id/toolbar"
-        android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RESUMEN DE ACTIVIDADES" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ultimo nivel de riesgo obtenido:"
+        android:id="@+id/tvRiesgoMenu"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="#FF0F4818" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvRiesgoResumen"
+        android:layout_below="@+id/tvRiesgoMenu"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp"
+        android:gravity="center" />
 
 </RelativeLayout>

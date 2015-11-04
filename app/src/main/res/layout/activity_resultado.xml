@@ -25,7 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="RIESGO LIGERAMENTE ELEVADO"
         android:id="@+id/tvRiesgo"
         android:layout_below="@+id/tvRiesgoTitulo"
         android:layout_centerHorizontal="true"
@@ -47,7 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="1%"
         android:id="@+id/porcentaje"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
@@ -57,21 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Puntos obtenidos:"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/porcentaje"
-        android:layout_centerHorizontal="true"
-        android:textColor="#FF0F4818"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="11"
         android:id="@+id/puntos"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/porcentaje" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,10 +95,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="descripcion"
         android:id="@+id/descripcion"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
          />
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Regresar Menu Principal"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@+id/etPass"
+
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+
+        android:background="#4bb53f"
+        android:textColor="#ffffffff"
+        android:id="@+id/butRegresarMenu"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

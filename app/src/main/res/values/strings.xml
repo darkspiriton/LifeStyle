@@ -2,11 +2,11 @@
     <string name="app_name">LifeStyle</string>
     <string name="action_settings">Settings</string>
     <string-array name="navegacion_array">
-        <item>Actividades</item>
+        <item>Menu Principal</item>
         <item>Perfil</item>
         <item>Doctores</item>
         <item>Foro</item>
-        <item>Resultado</item>
+        <item>Resultados</item>
         <item>Cerrar Sesión</item>
     </string-array>
     <string name="parse_app_id">KdsLvRhTcOwaI7g6DUSpmh5kMlvI9EYHobtd0Wxi</string>
