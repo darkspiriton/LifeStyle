@@ -6,6 +6,7 @@
         <item>Perfil</item>
         <item>Doctores</item>
         <item>Foro</item>
+        <item>Resultado</item>
         <item>Cerrar Sesión</item>
     </string-array>
     <string name="parse_app_id">KdsLvRhTcOwaI7g6DUSpmh5kMlvI9EYHobtd0Wxi</string>

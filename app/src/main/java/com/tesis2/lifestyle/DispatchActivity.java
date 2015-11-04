@@ -24,8 +24,6 @@ public class DispatchActivity extends Activity {
                 startActivity(new Intent(this,MenuActivity.class));
             }
 
-
-
         } else {
             //Si no est activa lo envia al Login
             startActivity(new Intent(this, Login.class));

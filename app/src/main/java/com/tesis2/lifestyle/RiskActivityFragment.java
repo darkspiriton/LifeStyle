@@ -13,21 +13,14 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
-/**
- * A placeholder fragment containing a simple view.
- */
+
 public class RiskActivityFragment extends Fragment implements View.OnClickListener{
 
     public static final String ARG_PAGE = "page";
 
-    /**
-     * The fragment's page number, which is set to the argument value for {@link #ARG_PAGE}.
-     */
     private int mPageNumber;
     private Button butFin;
     private RadioButton r1_1,r1_2,r1_3,r1_4,r2_1,r2_2,r4_1,r4_2,r4_3,r5_1,r5_2,r6_1,r6_2,r7_1,r7_2,r8_1,r8_2,r9_1,r9_2,r9_3;
@@ -35,10 +28,6 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
     private static String r2="";
     private static double IMC;
     private static EditText r3_1,r3_2;
-
-    /**
-     * Factory method for this fragment class. Constructs a new fragment for the given page number.
-     */
 
     public static RiskActivityFragment create(int pageNumber) {
         RiskActivityFragment fragment = new RiskActivityFragment();
@@ -55,7 +44,6 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPageNumber = getArguments()!= null ? getArguments().getInt(ARG_PAGE):1;
-
 
     }
 
@@ -75,7 +63,6 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                         r2_2 = (RadioButton) rootView.findViewById(R.id.r2_2);
                         r3_1 = (EditText) rootView.findViewById(R.id.r3_1);
                         r3_2 = (EditText) rootView.findViewById(R.id.r3_2);
-
 
                         r1_1.setOnClickListener(this);
                         r1_2.setOnClickListener(this);
@@ -135,6 +122,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                 }
         return rootView;
     }
+
     @Override
     public void onClick(View view) {
 
@@ -190,7 +178,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     ParseUser currentUser = ParseUser.getCurrentUser();
                     currentUser.put("evaluation", true);
                     currentUser.put("sex", r2);
-                    currentUser.put("riskLevel",riskLevel);
+                    currentUser.put("riskLevel", riskLevel);
                     currentUser.saveInBackground();
 
                     ParseObject risk = new ParseObject("Risk");
@@ -210,8 +198,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     risk.put("riskLevel", riskLevel);
                     risk.saveInBackground();
 
-                    Intent intent = new Intent();
-                    intent.setClass(getActivity(), ResultadoActivity.class);
+                    Intent intent = new Intent(getActivity(),ResultadoActivity.class);
                     startActivity(intent);
 
                     //mostrar resultado
@@ -315,8 +302,5 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     break;
             }
         }
-
-
     }
-
 }

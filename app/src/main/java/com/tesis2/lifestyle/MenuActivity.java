@@ -5,7 +5,6 @@ package com.tesis2.lifestyle;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -151,6 +150,11 @@ public class MenuActivity extends AppCompatActivity  {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         } if(position==4) {
+
+            Intent intent = new Intent(this,ResultadoActivity.class);
+            startActivity(intent);
+
+        }if(position==5) {
             Context context = getApplicationContext();
             CharSequence text = "Cerrar Sesion" ;
             int duration = Toast.LENGTH_SHORT;
