@@ -1,13 +1,17 @@
 package com.tesis2.lifestyle;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -33,6 +37,20 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
         butCreate.setOnClickListener(this);
         butCancel.setOnClickListener(this);
+
+        butCreate.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    butCreate.setBackgroundColor(Color.parseColor("#4bb53f"));
+                } else if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    butCreate.setBackgroundColor(Color.parseColor("#C04BB53F"));
+                }
+                return false;
+            }
+
+        });
     }
 
     @Override
@@ -40,8 +58,8 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
         if (view.getId()==R.id.butCreate){
             String nameAux=name.getText().toString().trim();
             String lastNameAux=lastName.getText().toString().trim();
-            String userAux=user.getText().toString().trim();
-            String passAux=pass.getText().toString().trim();
+            final String userAux=user.getText().toString().trim();
+            final String passAux=pass.getText().toString().trim();
             String passAux2=pass2.getText().toString().trim();
             String emailAux=email.getText().toString().trim();
 
@@ -66,7 +84,14 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                     usuario.signUpInBackground(new SignUpCallback() {
                         public void done(ParseException e) {
                             if (e == null) {
-                                finish();
+                                ParseUser.logInInBackground(userAux, passAux, new LogInCallback() {
+                                    public void done(ParseUser userAux, ParseException e) {
+
+                                            butCreate.setEnabled(false);
+                                            startActivity(new Intent(Registro.this, DispatchActivity.class));
+
+                                    }
+                                });
                             } else {
                                 Context context = getApplicationContext();
                                 CharSequence text = "Los datos de registro estan incorrectos o el usuario ya existe";
@@ -85,8 +110,13 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                 toast.show();
             }
         }else{
-            finish();
-        }
+            startActivity(new Intent(this, DispatchActivity.class));        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 
 }

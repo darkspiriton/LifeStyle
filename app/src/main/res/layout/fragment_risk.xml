@@ -75,16 +75,6 @@
                 android:layout_alignParentStart="true"
                 android:checked="false" />
         </RadioGroup>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El riesgo de desarrollar diabetes es superior a partir de los 45 años"
-            android:id="@+id/tvC1"
-            android:layout_below="@+id/r1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#A62A2B2D" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,11 +82,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="2.¿Que sexo tiene?"
             android:id="@+id/tvP2"
-            android:layout_below="@+id/tvC1"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/r1" />
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/r2"
             android:layout_below="@+id/tvP2"
@@ -129,7 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="3.Indice de Masa Corporal IMC"
+            android:text="3. Ingrese su peso y altura:"
             android:id="@+id/tvP3"
             android:layout_below="@+id/r2"
             android:layout_alignParentLeft="true"
@@ -155,18 +145,10 @@
             android:layout_marginLeft="16dp"
             android:layout_below="@+id/r3_1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El sobrepeso aumenta el riesgo de adquirir diabetes."
-            android:id="@+id/tvC3"
-            android:layout_below="@+id/r3_2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#A62A2B2D" />
-
     </RelativeLayout>
 
-
 </ScrollView>
+
+
+
+

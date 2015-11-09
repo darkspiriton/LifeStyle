@@ -19,14 +19,20 @@ public class DispatchActivity extends Activity {
             //Si la sesion esta activa lo enviar al Menu de Actividades
 
             if (currentUser.getBoolean("evaluation") == false){
-                startActivity(new Intent(this, RiskActivity.class));
+                startActivity(new Intent(this, RiskWelcomeActivity.class));
             } else {
                 startActivity(new Intent(this,MenuActivity.class));
             }
 
         } else {
-            //Si no est activa lo envia al Login
+            //Si no esta activa lo envia al Login
             startActivity(new Intent(this, Login.class));
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

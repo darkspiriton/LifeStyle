@@ -16,6 +16,17 @@ android:visibility="visible">
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:background="#fff2f0e8">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Solo se llena esta informacion una unica vez"
+            android:id="@+id/tvAviso"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            />
 
         <EditText
             android:layout_width="wrap_content"
@@ -23,7 +34,7 @@ android:visibility="visible">
             android:inputType="textPersonName"
             android:ems="12"
             android:id="@+id/etName"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/tvAviso"
             android:layout_centerHorizontal="true"
             android:hint="Primer Nombre"
             android:layout_marginTop="@dimen/activity_vertical_margin"/>
@@ -78,34 +89,6 @@ android:visibility="visible">
             android:layout_centerHorizontal="true"
             android:hint="Re-Contraseña"
             android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:id="@+id/tv2"
-            android:layout_below="@+id/etPassRegister"
-            android:layout_marginTop="40dp"
-            android:visibility="invisible"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_below="@+id/tv2"
-            android:layout_marginTop="40dp"
-            android:visibility="invisible"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Mediante la creación de una cuenta, usted acepta nuestros Términos de Servicio y Política de Privacidad"
-            android:id="@+id/tvterminos"
-            android:layout_below="@+id/etPass2Register"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:layout_marginTop="16dp"
-            />
-
-
-
 
     </RelativeLayout>
 

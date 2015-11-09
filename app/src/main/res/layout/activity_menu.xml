@@ -5,8 +5,6 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true"
     tools:context=".MenuActivity">
 
-    <include layout="@layout/content_menu"/>
-    <include layout="@layout/tool_bar_menu"/>
     <include layout="@layout/drawer_layout"/>
 
 </android.support.design.widget.CoordinatorLayout>

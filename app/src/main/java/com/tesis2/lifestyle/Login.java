@@ -3,7 +3,9 @@ package com.tesis2.lifestyle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +35,20 @@ public class Login extends Activity implements View.OnClickListener {
         //Monitorear botones
         butLogin.setOnClickListener(this);
         butRegister.setOnClickListener(this);
+
+        butLogin.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    butLogin.setBackgroundColor(Color.parseColor("#4bb53f"));
+                } else if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    butLogin.setBackgroundColor(Color.parseColor("#C04BB53F"));
+                }
+                return false;
+            }
+
+        });
     }
 
     @Override
@@ -45,10 +61,13 @@ public class Login extends Activity implements View.OnClickListener {
             ParseUser.logInInBackground(userAux, passAux, new LogInCallback() {
                 public void done(ParseUser userAux, ParseException e) {
                     if (userAux != null) {
+                        butLogin.setEnabled(false);
                         Intent intent = new Intent();
                         intent.putExtra("user", userAux.getUsername());
                         intent.setClass(Login.this,DispatchActivity.class);
                         startActivity(intent);
+
+
 
                     } else {
                         Context context = getApplicationContext();
@@ -65,5 +84,11 @@ public class Login extends Activity implements View.OnClickListener {
             Intent intent = new Intent(this,Registro.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

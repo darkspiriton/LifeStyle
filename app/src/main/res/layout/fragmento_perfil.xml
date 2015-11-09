@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff2f0e8">
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/llPerfil"
+            android:weightSum="5"
+            android:padding="16dp"
+            android:background="#daf7da">
+            <!-- Imagen de perfil -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle_image"
+                android:layout_width="@dimen/perfil_image_size"
+                android:layout_height="@dimen/perfil_image_size"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/perfil2"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#fff2f0e8"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/llRiesgoNivel"
+                android:layout_below="@id/tvTituloRiesgo"
+                android:layout_weight="3">
+                <!-- Nombre de Usuario -->
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cesar Moreno"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+                <!-- Correo de la cuenta -->
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cesar200526@gmail.com"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_weight="1"/>
+
+                <!-- Boton editar -->
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Editar"
+                    android:id="@+id/button"
+                    android:layout_below="@+id/email"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Puntos"
+            android:id="@+id/tvTitulopPuntos"
+            android:layout_below="@+id/llPerfil"
+            android:background="#8ef48e"
+            android:gravity="center"
+            android:textColor="#6a9c72"
+            android:textStyle="bold"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tvPuntosDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Puntos"
+            android:layout_below="@+id/tvTitulopPuntos"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="50sp"
+            android:background="#daf7da"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Logros"
+            android:id="@+id/tvTituloLogro"
+            android:background="#8ef48e"
+            android:layout_below="@id/tvPuntosDetalle"
+            android:gravity="center"
+            android:textColor="#6a9c72"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvLogroDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Logros"
+            android:layout_below="@+id/tvTituloLogro"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="50sp"
+            android:background="#daf7da"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Ranking"
+            android:id="@+id/tvTituloRanking"
+            android:background="#8ef48e"
+            android:layout_below="@id/tvLogroDetalle"
+            android:gravity="center"
+            android:textColor="#6a9c72"
+            android:padding="5dp"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/llRanking"
+            android:layout_below="@+id/tvTituloRanking"
+            android:weightSum="3"
+            android:background="#daf7da">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:id="@+id/ivRiesgoImagen"
+                android:src="@drawable/perfil1"
+                android:background="#daf7da"/>
+
+            <TextView
+                android:id="@+id/tvRankingPuesto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Puesto"
+                android:layout_below="@+id/tvTituloLogro"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="50sp"
+                android:background="#daf7da"
+                android:layout_weight="2"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

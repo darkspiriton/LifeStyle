@@ -198,7 +198,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     risk.put("riskLevel", riskLevel);
                     risk.saveInBackground();
 
-                    Intent intent = new Intent(getActivity(),ResultadoActivity.class);
+                    Intent intent = new Intent(getActivity(),MenuActivity.class);
                     startActivity(intent);
 
                     //mostrar resultado

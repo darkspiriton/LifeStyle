@@ -1,60 +1,108 @@
 package com.tesis2.lifestyle;
 
 
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.ParseUser;
 
 
 public class MenuActivity extends AppCompatActivity  {
-    private String[] mNavegacion;
+    private String mDrawerTitle;
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        setToolbar(); // Setear Toolbar como action bar
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        if (navigationView != null) {
+            //setupDrawerContent(navigationView);
+            prepararDrawer(navigationView);
+            // Seleccionar item por defecto
+            seleccionarItem(navigationView.getMenu().getItem(0));
+        }
+
+    }
+
+    private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        final ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            // Poner ícono del drawer toggle
+            ab.setHomeAsUpIndicator(R.drawable.ic_drawer);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
-        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+    private void prepararDrawer(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        seleccionarItem(menuItem);
+                        mDrawerLayout.closeDrawers();
+                        return true;
+                    }
+                });
 
-        mNavegacion = getResources().getStringArray(R.array.navegacion_array);
+    }
 
-        // Set the adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<>(this,
-                R.layout.drawer_list_item, mNavegacion));
+    private void seleccionarItem(MenuItem itemDrawer) {
+        Fragment fragmentoGenerico = null;
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-        // Set the list's click listener
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
+        switch (itemDrawer.getItemId()) {
+            case R.id.nav_home:
+                fragmentoGenerico = new FragmentoInicio();
+                break;
+            case R.id.nav_perfil:
+                fragmentoGenerico = new FragmentoPerfil();
+                break;
+            case R.id.nav_especialista:
+                fragmentoGenerico = new FragmentoEspecialista();
+                break;
+            case R.id.nav_foro:
+                fragmentoGenerico = new FragmentoForo();
+                break;
+            case R.id.nav_resultado:
+                fragmentoGenerico = new FragmentoResultado();
+                break;
+            case R.id.nav_log_out:
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mDrawerLayout.openDrawer(mDrawerList);
-            }
-        });
+                ParseUser.logOut();
+                Intent intent = new Intent(this,DispatchActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+        }
+        if (fragmentoGenerico != null) {
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_content, fragmentoGenerico)
+                    .commit();
+        }
 
-
+        // Setear título actual
+        setTitle(itemDrawer.getTitle());
     }
 
     @Override
@@ -91,21 +139,31 @@ public class MenuActivity extends AppCompatActivity  {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-
         switch (item.getItemId()) {
 
             case R.id.action_evaluar:
 
+                //Falta comprobar de que se puede realizar la evaluacion
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                Fragment fragmentoGenerico = new FragmentoEvaluar();
+
+                if (fragmentoGenerico != null) {
+                    fragmentManager
+                            .beginTransaction()
+                            .replace(R.id.main_content, fragmentoGenerico)
+                            .commit();
+                }
+
+                // Setear título actual
+                setTitle("Evaluar");
                 return true;
 
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
@@ -113,62 +171,6 @@ public class MenuActivity extends AppCompatActivity  {
 
     }
 
-
-
-
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
-
-    private void selectItem(int position) {
-
-        if (position==0){
-            Context context = getApplicationContext();
-            CharSequence text = "Menu Principal" ;
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        } if(position==1){
-            Context context = getApplicationContext();
-            CharSequence text = "Perfil" ;
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        } if (position==2){
-            Context context = getApplicationContext();
-            CharSequence text = "Doctores" ;
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        } if (position==3){
-            Context context = getApplicationContext();
-            CharSequence text = "Foro" ;
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        } if(position==4) {
-
-            Intent intent = new Intent(this,ResultadoActivity.class);
-            startActivity(intent);
-
-        }if(position==5) {
-            Context context = getApplicationContext();
-            CharSequence text = "Cerrar Sesion" ;
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-
-            ParseUser.logOut();
-            Intent intent = new Intent(this,DispatchActivity.class);
-            startActivity(intent);
-        }
-
-        // Highlight the selected item, update the title, and close the drawer
-        mDrawerList.setItemChecked(position, true);
-        //setTitle(mNavegacion[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
-    }
 }
+
+

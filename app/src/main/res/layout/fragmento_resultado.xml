@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff2f0e8">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Resultado detalle:"
+            android:id="@+id/tvTituloResultado"
+            android:background="#8ef48e"
+            android:gravity="center"
+            android:textColor="#6a9c72"
+            android:textStyle="bold"
+            android:padding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/llResultadoDetalle"
+            android:layout_below="@+id/tvTituloResultado"
+            android:weightSum="2"
+            android:background="#daf7da">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tvResultadoDetallePunto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Puntos"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:background="#daf7da"
+                    android:layout_weight="2"/>
+                <TextView
+                    android:id="@+id/tvResultadoDetallePorcentaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Porcentaje"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+
+                    android:background="#daf7da"
+                    android:layout_weight="2"/>
+
+            </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/tvDetalleRiesgoNivel"
+                    android:text="Riesgo"
+                    android:background="#daf7da"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:padding="5dp"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Resumen"
+            android:id="@+id/tvResultadoResumen"
+            android:layout_below="@+id/llResultadoDetalle"
+            android:background="#8ef48e"
+            android:gravity="center"
+            android:textColor="#6a9c72"
+            android:textStyle="bold"
+            android:padding="5dp" />
+        <TextView
+            android:id="@+id/tvResultadoResumenDetalle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Resumen"
+            android:layout_below="@+id/tvResultadoResumen"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="50sp"
+            android:background="#daf7da"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Historial"
+            android:id="@+id/tvResultadoHistorial"
+            android:layout_below="@+id/tvResultadoResumenDetalle"
+            android:background="#8ef48e"
+            android:gravity="center"
+            android:textColor="#6a9c72"
+            android:textStyle="bold"
+            android:padding="5dp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tvResultadoHistorialDetalle"
+            android:layout_below="@+id/tvResultadoHistorial"
+            android:background="#daf7da"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

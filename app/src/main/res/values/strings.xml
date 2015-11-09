@@ -1,15 +1,21 @@
 <resources>
     <string name="app_name">LifeStyle</string>
     <string name="action_settings">Settings</string>
-    <string-array name="navegacion_array">
-        <item>Menu Principal</item>
-        <item>Perfil</item>
-        <item>Doctores</item>
-        <item>Foro</item>
-        <item>Resultados</item>
-        <item>Cerrar Sesión</item>
-    </string-array>
     <string name="parse_app_id">KdsLvRhTcOwaI7g6DUSpmh5kMlvI9EYHobtd0Wxi</string>
     <string name="parse_client_id">w7UH4OKtYcdYJBNOYm2usz0AV7FXnA99Jxyoks8J</string>
-    <string name="title_activity_risk">Medir Nivel de Riesgo</string>
+    <string name="title_activity_risk">Riesgo</string>
+    <string name="title_activity_result">Resultados</string>
+
+    <string name="home_item">Inicio</string>
+    <string name="perfil_item">Mi Perfil</string>
+    <string name="especialista_item">Especialistas</string>
+    <string name="foro_item">Foro</string>
+    <string name="resultado_item">Mis Resultados</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+    <string name="session_item">Sesión</string>
+
+    <string name="action_previous">Anterior</string>
+    <string name="action_next">Siguiente</string>
+    <string name="action_finish">Finalizar</string>
+
 </resources>

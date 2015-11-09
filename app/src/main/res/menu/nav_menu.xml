@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home_item" />
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/cuenta"
+            android:title="@string/perfil_item" />
+        <item
+            android:id="@+id/nav_resultado"
+            android:icon="@drawable/configuracion"
+            android:title="@string/resultado_item" />
+        <item
+            android:id="@+id/nav_especialista"
+            android:icon="@drawable/usuario"
+            android:title="@string/especialista_item" />
+        <item
+            android:id="@+id/nav_foro"
+            android:icon="@drawable/categorias"
+            android:title="@string/foro_item" />
+
+
+        <!-- Sección de configuración -->
+        <item
+            android:id="@+id/configuration_section"
+            android:title="@string/session_item">
+            <menu>
+                <item
+                    android:id="@+id/nav_log_out"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/log_out_item" />
+            </menu>
+        </item>
+    </group>
+
+</menu>

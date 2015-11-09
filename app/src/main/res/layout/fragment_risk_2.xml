@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
-    android:background="#fff2f0e8">
+    android:background="@color/window_background">
 
     <!-- Dummy content. -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="4.¿Perímetro de cintura medido por debajo de las costillas? Hombre:H, Mujeres:M"
+            android:text="4.¿Medida aproximada de su cintura?  Hombre:H , Mujeres:M"
             android:id="@+id/tvP4"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -40,7 +40,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menos de 94 cm H/ 80 cm M"
+                android:text="Menos de 94 cm H   /   80 cm M"
                 android:id="@+id/r4_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -49,7 +49,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 94-02 cm H / 80-88 cm M"
+                android:text="Entre 94-02 cm H   /   80-88 cm M"
                 android:id="@+id/r4_2"
                 android:layout_below="@+id/r4_1"
                 android:layout_alignParentLeft="true"
@@ -59,7 +59,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mas de 102 cm H / 88 cm M"
+                android:text="Mas de 102 cm H   /    88 cm M"
                 android:id="@+id/r4_3"
                 android:layout_below="@+id/r4_2"
                 android:layout_alignParentLeft="true"
@@ -107,16 +107,6 @@
                 android:layout_alignParentStart="true"
                 android:checked="false" />
         </RadioGroup>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="El sedentarismo es un factor de riesgo para desarrollar diabetes mientras que la actividad fisica regular es un factor de prevención."
-            android:id="@+id/tvC5"
-            android:layout_below="@+id/r5"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#A62A2B2D" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -124,11 +114,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="6.¿Con qué frecuencia come verduras o frutas?"
             android:id="@+id/tvP6"
-            android:layout_below="@+id/tvC5"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/r5" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/r6"
@@ -140,7 +130,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sí"
+                android:text="Todos los dias"
                 android:id="@+id/r6_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -148,23 +138,13 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No"
+                android:text="Algunos dias"
                 android:id="@+id/r6_2"
                 android:layout_below="@+id/r6_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:checked="false" />
         </RadioGroup>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Una dieta equilibrada que incluye diariamente consumo de fruta y verduras, reduce el riesgo de diabetes."
-            android:id="@+id/tvC6"
-            android:layout_below="@+id/r6"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#A62A2B2D" />
 
     </RelativeLayout>
 

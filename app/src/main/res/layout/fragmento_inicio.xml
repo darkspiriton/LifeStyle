@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff2f0e8">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Riesgo actual"
+                android:id="@+id/tvTituloRiesgo"
+                android:background="#8ef48e"
+                android:gravity="center"
+                android:textColor="#6a9c72"
+                android:textStyle="bold"
+                android:padding="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/llRiesgoNivel"
+                android:layout_below="@id/tvTituloRiesgo">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:id="@+id/ivRiesgoImagen"
+                    android:src="@drawable/perfil1"
+                    android:background="#daf7da"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/tvRiesgoNivel"
+                    android:background="#daf7da"
+                    android:textSize="16dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Estado actual"
+                android:id="@+id/tvTituloEstado"
+                android:background="#8ef48e"
+                android:layout_below="@id/llRiesgoNivel"
+                android:gravity="center"
+                android:textColor="#6a9c72"
+                android:padding="5dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvEstadoDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Estado"
+                android:layout_below="@+id/tvTituloEstado"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="50sp"
+                android:background="#daf7da"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Recomendaciones"
+                android:id="@+id/tvTituloRecomendacion"
+                android:layout_below="@id/tvEstadoDetalle"
+                android:background="#8ef48e"
+                android:gravity="center"
+                android:textColor="#6a9c72"
+                android:padding="5dp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/llRecomendacion"
+                android:layout_below="@id/tvTituloRecomendacion">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:id="@+id/ivRecomendacioInicio"
+                    android:src="@drawable/perfil1"
+                    android:background="#daf7da"/>
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/lvRecomendacionDetalle"
+                    android:layout_below="@+id/tvTituloRecomendacion"
+                    android:background="#daf7da"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:id="@+id/ivRecomendacioFin"
+                    android:src="@drawable/perfil1"
+                    android:background="#daf7da"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Mesaje"
+                android:id="@+id/tvTituloMensaje"
+                android:background="#8ef48e"
+                android:layout_below="@id/llRecomendacion"
+                android:gravity="center"
+                android:textColor="#6a9c72"
+                android:padding="5dp"/>
+
+
+            <TextView
+                android:id="@+id/tvMensajeDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Mensaje"
+                android:layout_below="@+id/tvTituloMensaje"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="50sp"
+                android:background="#daf7da"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

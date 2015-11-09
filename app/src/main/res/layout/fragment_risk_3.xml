@@ -58,25 +58,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="La hipertensión, junto con el exceso  de grasas(colesterol, triglicéridos), la obesidad pueden favorecer el desarrollo de diabetes u otros enfermedades."
-            android:id="@+id/tvC7"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/r7"
-            android:textColor="#A62A2B2D" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="8.¿Le han detectado alguna vez valores de glucosa altos?"
             android:id="@+id/tvP8"
-            android:layout_below="@+id/tvC7"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#4bb53f"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/r7" />
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/r8"

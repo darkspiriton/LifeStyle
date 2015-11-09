@@ -3,9 +3,10 @@ package com.tesis2.lifestyle;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.parse.GetCallback;
@@ -14,18 +15,19 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-public class ResultadoActivity extends AppCompatActivity implements View.OnClickListener {
+public class ResultActivity extends AppCompatActivity {
 
     TextView resultado,porcentaje,puntos,descripcion;
-    Button butMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resultado);
-        obtenerResultado();
-        butMenu = (Button) findViewById(R.id.butRegresarMenu);
+        setContentView(R.layout.activity_result);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        butMenu.setOnClickListener(this);
+        obtenerResultado();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void obtenerResultado(){
@@ -54,10 +56,17 @@ public class ResultadoActivity extends AppCompatActivity implements View.OnClick
         });
     }
 
-
     @Override
-    public void onClick(View view) {
-        Intent intent = new Intent(this,MenuActivity.class);
-        startActivity(intent);
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Navigate "up" the demo structure to the launchpad activity.
+                // See http://developer.android.com/design/patterns/navigation.html for more.
+                NavUtils.navigateUpTo(this, new Intent(this, MenuActivity.class));
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
     }
+
 }
