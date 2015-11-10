@@ -16,7 +16,7 @@
             android:id="@+id/tvTituloResultado"
             android:background="#8ef48e"
             android:gravity="center"
-            android:textColor="#6a9c72"
+            android:textColor="#446449"
             android:textStyle="bold"
             android:padding="5dp" />
 
@@ -80,7 +80,7 @@
             android:layout_below="@+id/llResultadoDetalle"
             android:background="#8ef48e"
             android:gravity="center"
-            android:textColor="#6a9c72"
+            android:textColor="#446449"
             android:textStyle="bold"
             android:padding="5dp" />
         <TextView
@@ -103,7 +103,7 @@
             android:layout_below="@+id/tvResultadoResumenDetalle"
             android:background="#8ef48e"
             android:gravity="center"
-            android:textColor="#6a9c72"
+            android:textColor="#446449"
             android:textStyle="bold"
             android:padding="5dp" />
 

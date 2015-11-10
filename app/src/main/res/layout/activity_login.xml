@@ -55,26 +55,37 @@ tools:context="com.tesis2.lifestyle.Login">
 
             android:background="#4bb53f"
             android:textColor="#ffffffff" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="¿Eres Nuevo? Registrate"
+            android:text="Para usar LifeStyle es necesario estar registrado"
+            android:id="@+id/tvComentario"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/butLogin"
+            android:textColor="#6a9c72"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="¿Eres Nuevo? Registrate Aqui"
             android:id="@+id/butRegister"
             android:layout_centerHorizontal="true"
             android:clickable="true"
-            android:layout_marginTop="10dp"
             android:textIsSelectable="false"
             android:password="false"
             android:phoneNumber="false"
             android:singleLine="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:layout_below="@+id/butLogin"
+            android:layout_below="@+id/tvComentario"
             android:linksClickable="false"
             android:textColor="#4bb53f"
-            android:layout_margin="16dp"/>
+            />
 
 
         <ImageView
