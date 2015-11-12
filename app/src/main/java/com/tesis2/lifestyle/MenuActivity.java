@@ -15,12 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 
 public class MenuActivity extends AppCompatActivity  {
-    private String mDrawerTitle;
     private DrawerLayout mDrawerLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,10 @@ public class MenuActivity extends AppCompatActivity  {
             case R.id.nav_log_out:
 
                 ParseUser.logOut();
+                ParseObject.unpinAllInBackground("riesgo");
+                ParseObject.unpinAllInBackground("mensaje");
+                ParseObject.unpinAllInBackground("fecha");
+
                 Intent intent = new Intent(this,DispatchActivity.class);
                 startActivity(intent);
                 finish();
@@ -144,7 +149,6 @@ public class MenuActivity extends AppCompatActivity  {
             case R.id.action_evaluar:
 
                 //Falta comprobar de que se puede realizar la evaluacion
-
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 Fragment fragmentoGenerico = new FragmentoEvaluar();
 

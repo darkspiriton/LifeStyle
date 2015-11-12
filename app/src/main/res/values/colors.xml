@@ -2,8 +2,9 @@
 <resources>
     <color name="window_background">#fff2f0e8</color>
 
-    <color name="colorPrimary">#4bb53f</color>
+    <color name="colorPrimary">#388E3C</color>
     <color name="colorPrimaryDark">#a62e7326</color>
     <color name="colorAccent">#5eec0c</color>
+    <color name="colorBotonDeporte">#FF9800</color>
 
 </resources>

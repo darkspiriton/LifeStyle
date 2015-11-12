@@ -62,11 +62,8 @@ public class Login extends Activity implements View.OnClickListener {
                 public void done(ParseUser userAux, ParseException e) {
                     if (userAux != null) {
                         butLogin.setEnabled(false);
-                        Intent intent = new Intent();
-                        intent.putExtra("user", userAux.getUsername());
-                        intent.setClass(Login.this,DispatchActivity.class);
+                        Intent intent = new Intent(Login.this,DispatchActivity.class);
                         startActivity(intent);
-
 
 
                     } else {

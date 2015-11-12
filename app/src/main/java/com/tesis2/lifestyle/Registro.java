@@ -11,15 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class Registro extends AppCompatActivity implements View.OnClickListener {
     Button butCreate, butCancel;
     EditText user,name,lastName,email, pass,pass2;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +58,12 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         if (view.getId()==R.id.butCreate){
-            String nameAux=name.getText().toString().trim();
-            String lastNameAux=lastName.getText().toString().trim();
+            final String nameAux=name.getText().toString().trim();
+            final String lastNameAux=lastName.getText().toString().trim();
             final String userAux=user.getText().toString().trim();
             final String passAux=pass.getText().toString().trim();
-            String passAux2=pass2.getText().toString().trim();
-            String emailAux=email.getText().toString().trim();
+            final String passAux2=pass2.getText().toString().trim();
+            final String emailAux=email.getText().toString().trim();
 
             //verificar si son nulos
             if(passAux.equals(passAux2)){
@@ -73,34 +75,57 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
                     toast.show();
 
                 }else {
-                    ParseUser usuario = new ParseUser();
-                    usuario.setUsername(userAux.toLowerCase());
-                    usuario.setEmail(emailAux.toLowerCase());
-                    usuario.setPassword(passAux);
-                    usuario.put("firstName",nameAux);
-                    usuario.put("lastName",lastNameAux);
-                    usuario.put("evaluation",false);
 
-                    usuario.signUpInBackground(new SignUpCallback() {
-                        public void done(ParseException e) {
-                            if (e == null) {
-                                ParseUser.logInInBackground(userAux, passAux, new LogInCallback() {
-                                    public void done(ParseUser userAux, ParseException e) {
 
-                                            butCreate.setEnabled(false);
-                                            startActivity(new Intent(Registro.this, DispatchActivity.class));
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Imagenes");
+                    query.whereEqualTo("tipo", "foto_perfil");
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject object, ParseException e) {
+                            if (e==null){
+                                ParseUser usuario = new ParseUser();
+                                usuario.setUsername(userAux.toLowerCase());
+                                usuario.setEmail(emailAux.toLowerCase());
+                                usuario.setPassword(passAux);
+                                usuario.put("firstName", nameAux);
+                                usuario.put("lastName",lastNameAux);
+                                usuario.put("evaluation", false);
+                                usuario.put("puntos", 0);
+                                usuario.put("photo",object.getParseFile("imagen"));
 
+                                usuario.saveInBackground();
+
+                                usuario.signUpInBackground(new SignUpCallback() {
+                                    public void done(ParseException e) {
+                                        if (e == null) {
+                                            ParseUser.logInInBackground(userAux, passAux, new LogInCallback() {
+                                                public void done(ParseUser userAux, ParseException e) {
+
+                                                    butCreate.setEnabled(false);
+                                                    startActivity(new Intent(Registro.this, DispatchActivity.class));
+
+                                                }
+                                            });
+                                        } else {
+                                            Context context = getApplicationContext();
+                                            CharSequence text = "Los datos de registro estan incorrectos o el usuario ya existe";
+                                            int duration = Toast.LENGTH_SHORT;
+                                            Toast toast = Toast.makeText(context, text, duration);
+                                            toast.show();
+                                        }
                                     }
                                 });
-                            } else {
+                            }else{
                                 Context context = getApplicationContext();
-                                CharSequence text = "Los datos de registro estan incorrectos o el usuario ya existe";
+                                CharSequence text = "No se pudo conectar a internet intentelo de nuevo";
                                 int duration = Toast.LENGTH_SHORT;
                                 Toast toast = Toast.makeText(context, text, duration);
                                 toast.show();
                             }
+
                         }
                     });
+
+
                 }
             }else {
                 Context context = getApplicationContext();

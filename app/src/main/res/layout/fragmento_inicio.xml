@@ -4,22 +4,23 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:weightSum="8">
+    android:weightSum="1">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff2f0e8"        >
+        android:layout_height="0dp"
+        android:background="#daf7da"
+        android:layout_weight="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Riesgo actual"
+                android:text="RIESGO ACTUAL"
                 android:id="@+id/tvTituloRiesgo"
                 android:background="#8ef48e"
                 android:gravity="center"
@@ -30,33 +31,51 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:orientation="horizontal"
                 android:id="@+id/llRiesgoNivel"
                 android:layout_below="@id/tvTituloRiesgo"
-                android:weightSum="3"
-                >
+                android:weightSum="4">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:id="@+id/ivRiesgoImagen"
-                    android:background="#daf7da"
-                    android:padding="5dp"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:id="@+id/tvRiesgoNivel"
+                    android:id="@+id/ivRiesgoImagen"
                     android:background="#daf7da"
-                    android:textSize="25sp"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:clickable="true" />
+                    android:padding="5dp"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2.5"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:id="@+id/tvRiesgoNivel"
+                            android:background="#daf7da"
+                            android:textSize="25sp"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:padding="5dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.5"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/tvFechaRiesgo"
+                            android:background="#daf7da"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                             />
+
+                    </LinearLayout>
 
             </LinearLayout>
 
@@ -64,58 +83,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Reducir Riesgo"
+                android:text="COMO REDUCIR SU RIESGO"
                 android:id="@+id/tvTituloEstado"
-                android:background="#ff9eaa"
+
                 android:layout_below="@id/llRiesgoNivel"
+                android:background="#8ef48e"
                 android:gravity="center"
-                android:textColor="#963642"
+                android:textColor="#446449"
                 android:padding="5dp"
                 android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="150dp"
                 android:orientation="horizontal"
                 android:id="@+id/llEstado"
                 android:layout_below="@id/tvTituloEstado"
-                android:weightSum="3"
-                >
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/scroll"
-                    android:background="#ffeff1">
-                    <TextView
-                        android:id="@+id/tvEstadoDetalle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:background="#ffeff1"
-                        android:padding="5dp"
-                        android:textStyle="italic"
-                        android:layout_weight="1"
-                        android:clickable="true" />
-                </ScrollView>
+                android:background="#daf7da"
+                android:weightSum="1"
 
-                <ImageView
-                    android:layout_width="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/tvEstadoDetalle"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:id="@+id/ivEstadoImagen"
-                    android:src="@drawable/estado"
-                    android:background="#ffeff1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:background="#daf7da"
                     android:padding="5dp"
-                    />
+                    android:textStyle="italic"
+                    android:layout_weight="1"
+                    android:clickable="true" />
+
+
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Recomendaciones"
+                android:text="RECOMENDACIONES"
                 android:id="@+id/tvTituloRecomendacion"
                 android:layout_below="@id/llEstado"
                 android:background="#8ef48e"
@@ -126,51 +134,87 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:id="@+id/llRecomendacion"
                 android:layout_below="@id/tvTituloRecomendacion"
-                android:weightSum="3">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:id="@+id/ivRecomendacioInicio"
-                    android:src="@drawable/deporte"
-                    android:background="#daf7da"
-                    android:padding="5dp"
-                    />
+                android:weightSum="2"
+                android:background="#8ef48e">
 
-                <ListView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/lvRecomendacionDetalle"
-                    android:layout_below="@+id/tvTituloRecomendacion"
-                    android:background="#daf7da"
-                    android:textStyle="bold"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:clickable="true" />
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:id="@+id/ivRecomendacioFin"
-                    android:src="@drawable/indicador_derecho"
-                    android:background="#daf7da"
-                    android:padding="5dp"/>
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:id="@+id/ivRecomendacioInicio"
+                        android:src="@drawable/deporte"
+                        android:background="@color/colorBotonDeporte"
+                        />
 
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:text="Recomendaciones Fisicas"
+                        android:id="@+id/butEjercicio"
+                        android:background="@color/colorBotonDeporte"
+                        android:textColor="#ffffffff"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:id="@+id/ivRecomendacioInicio3"
+                        android:src="@drawable/comida"
+                        android:background="#4bb53f"
+                        />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:text="Dietas Recomendadas"
+                        android:id="@+id/butDieta"
+                        android:background="#4bb53f"
+                        android:textColor="#ffffffff"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Consejo"
+                android:text="CONSEJO DEL DIA"
                 android:id="@+id/tvTituloMensaje"
-                android:background="#ff9eaa"
+
                 android:layout_below="@id/llRecomendacion"
+                android:background="#8ef48e"
                 android:gravity="center"
-                android:textColor="#963642"
+                android:textColor="#446449"
                 android:padding="5dp"
                 android:textStyle="bold"/>
 
@@ -185,7 +229,7 @@
                 android:layout_centerHorizontal="true"
                 android:textStyle="italic"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:background="#ffeff1"
+                android:background="#daf7da"
                 android:padding="5dp"/>
 
         </RelativeLayout>

@@ -13,7 +13,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 
@@ -25,6 +29,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
     private Button butFin;
     private RadioButton r1_1,r1_2,r1_3,r1_4,r2_1,r2_2,r4_1,r4_2,r4_3,r5_1,r5_2,r6_1,r6_2,r7_1,r7_2,r8_1,r8_2,r9_1,r9_2,r9_3;
     private static int r1=6,r3,r4=6,r5=6,r6=6,r7=6,r8=6,r9=6;
+    private int riesgo,riskLevel;
     private static String r2="";
     private static double IMC;
     private static EditText r3_1,r3_2;
@@ -155,8 +160,8 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                         r3=3;
                     }
 
-                    int riesgo = r1+r3+r4+r5+r6+r7+r8+r9;
-                    int riskLevel=0;
+                    riesgo = r1+r3+r4+r5+r6+r7+r8+r9;
+                    riskLevel=0;
 
                     if (riesgo<7 ){
                         riskLevel=1;
@@ -175,34 +180,56 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     }
 
 
-                    ParseUser currentUser = ParseUser.getCurrentUser();
-                    currentUser.put("evaluation", true);
-                    currentUser.put("sex", r2);
-                    currentUser.put("riskLevel", riskLevel);
-                    currentUser.saveInBackground();
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Logro");
+                    query.whereEqualTo("indicador", 1);
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject logro, ParseException e) {
 
-                    ParseObject risk = new ParseObject("Risk");
-                    risk.put("userId",currentUser.getObjectId());
-                    risk.put("user",currentUser.getUsername());
-                    risk.put("p1", r1);
-                    risk.put("p2", r2);
-                    risk.put("p3",r3);
-                    risk.put("p4",r4);
-                    risk.put("p5",r5);
-                    risk.put("p6",r6);
-                    risk.put("p7",r7);
-                    risk.put("p8",r8);
-                    risk.put("p9",r9);
-                    risk.put("result", riesgo);
-                    risk.put("evaluado", false);
-                    risk.put("riskLevel", riskLevel);
-                    risk.saveInBackground();
+                            if (e==null){
+                                ParseUser currentUser = ParseUser.getCurrentUser();
+                                ParseRelation relation = currentUser.getRelation("logros");
+                                int puntosAnteriores=currentUser.getInt("puntos");
+                                int puntosNuevos=logro.getInt("puntos");
+                                currentUser.put("puntos", puntosAnteriores + puntosNuevos);
+                                relation.add(logro);
+                                currentUser.put("evaluation", true);
+                                currentUser.put("sex", r2);
+                                currentUser.put("riskLevel", riskLevel);
 
-                    Intent intent = new Intent(getActivity(),MenuActivity.class);
-                    startActivity(intent);
+                                ParseObject risk = new ParseObject("Risk");
+                                risk.put("userId",currentUser.getObjectId());
+                                risk.put("user",currentUser.getUsername());
+                                risk.put("p1",r1);
+                                risk.put("p2",r2);
+                                risk.put("p3",r3);
+                                risk.put("p4",r4);
+                                risk.put("p5",r5);
+                                risk.put("p6",r6);
+                                risk.put("p7",r7);
+                                risk.put("p8",r8);
+                                risk.put("p9",r9);
+                                risk.put("result", riesgo);
+                                risk.put("evaluado", false);
+                                risk.put("riskLevel", riskLevel);
 
-                    //mostrar resultado
-                    //falta obtener recomendaciones
+                                risk.saveInBackground();
+
+                                currentUser.saveInBackground();
+
+
+
+                                Intent intent = new Intent(getActivity(),MenuActivity.class);
+                                startActivity(intent);
+
+
+                            }else{
+
+                            }
+
+                        }
+                    });
+
+
 
 
                 } catch (Exception e){

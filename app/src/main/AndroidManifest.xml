@@ -32,15 +32,6 @@
             android:name=".RiskActivity"
             android:label="@string/title_activity_risk"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".ResultActivity"
-            android:label="@string/title_activity_result"
-            android:parentActivityName=".MenuActivity"
-            android:theme="@style/AppTheme" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.tesis2.lifestyle.MenuActivity" />
-        </activity>
         <activity android:name=".RiskWelcomeActivity" >
         </activity>
     </application>
