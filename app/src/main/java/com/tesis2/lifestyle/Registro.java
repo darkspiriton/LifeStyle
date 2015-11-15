@@ -11,11 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -64,6 +61,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
             final String passAux=pass.getText().toString().trim();
             final String passAux2=pass2.getText().toString().trim();
             final String emailAux=email.getText().toString().trim();
+            final String ESTADO="nuevo";
 
             //verificar si son nulos
             if(passAux.equals(passAux2)){
@@ -76,56 +74,38 @@ public class Registro extends AppCompatActivity implements View.OnClickListener 
 
                 }else {
 
+                    ParseUser usuario = new ParseUser();
+                    usuario.setUsername(userAux.toLowerCase());
+                    usuario.setEmail(emailAux.toLowerCase());
+                    usuario.setPassword(passAux);
+                    usuario.put("firstName", nameAux);
+                    usuario.put("lastName",lastNameAux);
+                    usuario.put("evaluation", false);
+                    usuario.put("estado",ESTADO);
+                    usuario.put("puntos", 0);
 
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Imagenes");
-                    query.whereEqualTo("tipo", "foto_perfil");
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        public void done(ParseObject object, ParseException e) {
-                            if (e==null){
-                                ParseUser usuario = new ParseUser();
-                                usuario.setUsername(userAux.toLowerCase());
-                                usuario.setEmail(emailAux.toLowerCase());
-                                usuario.setPassword(passAux);
-                                usuario.put("firstName", nameAux);
-                                usuario.put("lastName",lastNameAux);
-                                usuario.put("evaluation", false);
-                                usuario.put("puntos", 0);
-                                usuario.put("photo",object.getParseFile("imagen"));
 
-                                usuario.saveInBackground();
+                    usuario.saveInBackground();
 
-                                usuario.signUpInBackground(new SignUpCallback() {
-                                    public void done(ParseException e) {
-                                        if (e == null) {
-                                            ParseUser.logInInBackground(userAux, passAux, new LogInCallback() {
-                                                public void done(ParseUser userAux, ParseException e) {
+                    usuario.signUpInBackground(new SignUpCallback() {
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                ParseUser.logInInBackground(userAux, passAux, new LogInCallback() {
+                                    public void done(ParseUser userAux, ParseException e) {
+                                        butCreate.setEnabled(false);
+                                        startActivity(new Intent(Registro.this, DispatchActivity.class));
 
-                                                    butCreate.setEnabled(false);
-                                                    startActivity(new Intent(Registro.this, DispatchActivity.class));
-
-                                                }
-                                            });
-                                        } else {
-                                            Context context = getApplicationContext();
-                                            CharSequence text = "Los datos de registro estan incorrectos o el usuario ya existe";
-                                            int duration = Toast.LENGTH_SHORT;
-                                            Toast toast = Toast.makeText(context, text, duration);
-                                            toast.show();
-                                        }
                                     }
                                 });
-                            }else{
+                            } else {
                                 Context context = getApplicationContext();
-                                CharSequence text = "No se pudo conectar a internet intentelo de nuevo";
+                                CharSequence text = "Los datos de registro estan incorrectos o el usuario ya existe";
                                 int duration = Toast.LENGTH_SHORT;
                                 Toast toast = Toast.makeText(context, text, duration);
                                 toast.show();
                             }
-
                         }
                     });
-
-
                 }
             }else {
                 Context context = getApplicationContext();

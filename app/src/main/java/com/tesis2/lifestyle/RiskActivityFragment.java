@@ -3,8 +3,10 @@ package com.tesis2.lifestyle;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +15,16 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+
+import java.util.List;
+import java.util.Random;
 
 
 public class RiskActivityFragment extends Fragment implements View.OnClickListener{
@@ -33,6 +39,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
     private static String r2="";
     private static double IMC;
     private static EditText r3_1,r3_2;
+
 
     public static RiskActivityFragment create(int pageNumber) {
         RiskActivityFragment fragment = new RiskActivityFragment();
@@ -143,7 +150,6 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                 toast.show();
             } else{
                 double peso,altura;
-
                 try{
                     peso = Double.parseDouble(pesoAux);
                     altura = Double.parseDouble(alturaAux);
@@ -180,21 +186,33 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     }
 
 
+
+
                     ParseQuery<ParseObject> query = ParseQuery.getQuery("Logro");
                     query.whereEqualTo("indicador", 1);
                     query.getFirstInBackground(new GetCallback<ParseObject>() {
                         public void done(ParseObject logro, ParseException e) {
 
                             if (e==null){
+                                //Metodo que asigne las recomendciones parametro riskLevel
+                                //Metodo asyncrono para guardar foto de perfil
+
+
+
                                 ParseUser currentUser = ParseUser.getCurrentUser();
                                 ParseRelation relation = currentUser.getRelation("logros");
+
                                 int puntosAnteriores=currentUser.getInt("puntos");
                                 int puntosNuevos=logro.getInt("puntos");
                                 currentUser.put("puntos", puntosAnteriores + puntosNuevos);
+
                                 relation.add(logro);
+
+
                                 currentUser.put("evaluation", true);
                                 currentUser.put("sex", r2);
                                 currentUser.put("riskLevel", riskLevel);
+                                currentUser.put("estado","sin evaluar");
 
                                 ParseObject risk = new ParseObject("Risk");
                                 risk.put("userId",currentUser.getObjectId());
@@ -216,6 +234,8 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
 
                                 currentUser.saveInBackground();
 
+                                foto foto= new foto();
+                                foto.execute();
 
 
                                 Intent intent = new Intent(getActivity(),MenuActivity.class);
@@ -328,6 +348,225 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                         r9=5;
                     break;
             }
+        }
+    }
+
+
+    private void agregarFotoPerfil(){
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Imagenes");
+        query.whereEqualTo("tipo", r2.toLowerCase());
+        query.getFirstInBackground(new GetCallback<ParseObject>() {
+            public void done(ParseObject object, ParseException e) {
+                if (e==null){
+                    ParseUser usuario = ParseUser.getCurrentUser();
+                    usuario.put("photo",object.getParseFile("imagen"));
+                    usuario.saveInBackground();
+                }else{
+
+                }
+
+            }
+        });
+
+    }
+
+    private void recomendacionDietaUser(){
+
+        ParseObject dietaFinal = new ParseObject("HorarioDieta");
+        dietaFinal.put("estado", true);
+        dietaFinal.put("userId", ParseUser.getCurrentUser().getObjectId());
+        dietaFinal.saveInBackground();
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Dieta");
+        query.whereEqualTo("risk", riskLevel);
+        query.whereEqualTo("tipo", "desayuno");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> dietas, ParseException e) {
+                if (dietas != null) {
+
+                    Log.d("Dietas", "Retrieved " + dietas.size() + " dietas");
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("HorarioDieta");
+                    query.whereEqualTo("userId", ParseUser.getCurrentUser().getObjectId());
+                    query.whereEqualTo("estado", true);
+
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(final ParseObject horario, ParseException e) {
+                            if (horario!=null) {
+                                Random ram = new Random();
+                                int i = ram.nextInt(dietas.size());
+                                ParseObject dieta = dietas.get(i);
+                                horario.put("desayuno", dieta.getString("nombre"));
+                                horario.put("risk", dieta.getInt("risk"));
+                                horario.put("descripcionDesayuno", dieta.getString("descripcion"));
+                                //horario.put("imagenDesayuno", dieta.getParseFile("imagen"));
+                                horario.saveInBackground();
+                            }else {
+
+                            }
+
+
+                        }
+                    });
+
+                }
+
+            }
+        });
+
+        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Dieta");
+        query2.whereEqualTo("risk", riskLevel);
+        query2.whereEqualTo("tipo", "almuerzo");
+        query2.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> dietas2, ParseException e) {
+                if (dietas2 != null) {
+
+                    Log.d("Dietas", "Retrieved " + dietas2.size() + " dietas");
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("HorarioDieta");
+                    query.whereEqualTo("userId", ParseUser.getCurrentUser().getObjectId());
+                    query.whereEqualTo("estado", true);
+
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(final ParseObject horario, ParseException e) {
+                            if (horario!=null) {
+                                Random ram = new Random();
+                                int i = ram.nextInt(dietas2.size());
+                                ParseObject dieta = dietas2.get(i);
+                                horario.put("almuerzo", dieta.getString("nombre"));
+                                horario.put("descripcionAlmuerzo", dieta.getString("descripcion"));
+                                //horario.put("imagenAlmuerzo", dieta.getParseFile("imagen"));
+                                horario.saveInBackground();
+                            }else {
+
+                            }
+
+
+                        }
+                    });
+
+                }
+
+            }
+        });
+
+        ParseQuery<ParseObject> query3 = ParseQuery.getQuery("Dieta");
+        query3.whereEqualTo("risk", riskLevel);
+        query3.whereEqualTo("tipo", "cena");
+        query3.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> dietas3, ParseException e) {
+                if (dietas3 != null) {
+
+                    Log.d("Dietas", "Retrieved " + dietas3.size() + " dietas");
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("HorarioDieta");
+                    query.whereEqualTo("userId", ParseUser.getCurrentUser().getObjectId());
+                    query.whereEqualTo("estado", true);
+
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(final ParseObject horario, ParseException e) {
+                            if (horario!=null) {
+                                Random ram = new Random();
+                                int i = ram.nextInt(dietas3.size());
+                                ParseObject dieta = dietas3.get(i);
+                                horario.put("cena", dieta.getString("nombre"));
+                                horario.put("descripcionCena", dieta.getString("descripcion"));
+                                //horario.put("imagenCena", dieta.getParseFile("imagen"));
+                                horario.saveInBackground();
+                            }else {
+
+                            }
+
+
+                        }
+                    });
+
+                }
+
+            }
+        });
+
+    }
+
+    private void recomendacionEjercicioUser(){
+        ParseObject ejercicioFinal = new ParseObject("HorarioEjercicio");
+        ejercicioFinal.put("estado", true);
+        ejercicioFinal.put("userId", ParseUser.getCurrentUser().getObjectId());
+        ejercicioFinal.saveInBackground();
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Ejercicio");
+        query.whereEqualTo("risk", riskLevel);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> ejercicios, ParseException e) {
+                if (ejercicios != null) {
+
+                    Log.d("Ejercicios", "Retrieved " + ejercicios.size() + " ejercicios");
+
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("HorarioEjercicio");
+                    query.whereEqualTo("userId", ParseUser.getCurrentUser().getObjectId());
+                    query.whereEqualTo("estado", true);
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(final ParseObject horario, ParseException e) {
+                            if (horario!=null) {
+                                Random ram1 = new Random();
+                                int i1 = ram1.nextInt(ejercicios.size());
+                                int i2 = ram1.nextInt(ejercicios.size());
+                                int i3 = ram1.nextInt(ejercicios.size());
+                                ParseObject ejercicio1 = ejercicios.get(i1);
+                                horario.put("nombreE1", ejercicio1.getString("nombre"));
+                                horario.put("risk", ejercicio1.getInt("risk"));
+                                horario.put("descripcionE1", ejercicio1.getString("descripcion"));
+                                //horario.put("imagenE1", ejercicio1.getParseFile("imagen"));
+                                horario.put("duracionE1", ejercicio1.getInt("duracion"));
+                                horario.put("repeticionE1", ejercicio1.getInt("repeticion"));
+
+                                ParseObject ejercicio2 = ejercicios.get(i2);
+                                horario.put("nombreE2", ejercicio2.getString("nombre"));
+                                horario.put("descripcionE2", ejercicio2.getString("descripcion"));
+                                //horario.put("imagenE2", ejercicio2.getParseFile("imagen"));
+                                horario.put("duracionE2", ejercicio1.getInt("duracion"));
+                                horario.put("repeticionE2", ejercicio1.getInt("repeticion"));
+
+                                ParseObject ejercicio3 = ejercicios.get(i3);
+                                horario.put("nombreE3", ejercicio3.getString("nombre"));
+                                horario.put("descripcionE3", ejercicio3.getString("descripcion"));
+                                //horario.put("imagenE3", ejercicio3.getParseFile("imagen"));
+                                horario.put("duracionE3", ejercicio1.getInt("duracion"));
+                                horario.put("repeticionE3", ejercicio1.getInt("repeticion"));
+                                horario.saveInBackground();
+                            }else {
+
+                            }
+
+
+                        }
+                    });
+
+                }
+
+            }
+        });
+
+
+    }
+
+    public class foto extends  AsyncTask<Void, Void, String>{
+
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            recomendacionDietaUser();
+            recomendacionEjercicioUser();
+            agregarFotoPerfil();
+
+
+            return "Termino" ;
+        }
+        @Override
+        protected void onPostExecute(String result) {
+
+            super.onPostExecute(result);
         }
     }
 }

@@ -17,5 +17,10 @@
     <string name="action_previous">Anterior</string>
     <string name="action_next">Siguiente</string>
     <string name="action_finish">Finalizar</string>
-
+    <string name="title_activity_logro">Logros</string>
+    <string name="title_activity_ranking">Ranking</string>
+    <string name="title_activity_editar">Editar Perfil</string>
+    <string name="title_activity_ejercicio">Lista de Ejercicios</string>
+    <string name="title_activity_dieta">Lista de Dietas</string>
 </resources>
+

@@ -1,6 +1,7 @@
 package com.tesis2.lifestyle;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -103,8 +104,8 @@ public class FragmentoInicio extends Fragment implements View.OnClickListener {
                 if (m == null) {
                     obtenerFechaOnline();
                 } else {
-                    DateFormat fecha2 = new SimpleDateFormat("dd/MM/yyyy");
-                    String convertido = fecha2.format(m.getCreatedAt());
+                    DateFormat fecha3 = new SimpleDateFormat("dd/MM/yyyy");
+                    String convertido = fecha3.format(m.getCreatedAt());
                     fecha.setText(convertido);
                 }
             }
@@ -242,12 +243,17 @@ public class FragmentoInicio extends Fragment implements View.OnClickListener {
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+            Intent intent = new Intent(getActivity(), Ejercicio.class);
+            startActivity(intent);
+
         }if (view.getId()==R.id.butDieta){
             Context context = getContext();
             CharSequence text = "Dietas Recomendadas";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+            Intent intent = new Intent(getActivity(), Dieta.class);
+            startActivity(intent);
         }
     }
 

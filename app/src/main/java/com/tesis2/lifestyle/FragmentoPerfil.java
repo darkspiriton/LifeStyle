@@ -1,6 +1,7 @@
 package com.tesis2.lifestyle;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -64,14 +65,14 @@ public class FragmentoPerfil extends Fragment implements View.OnClickListener {
         }
 
 
-        new GetDataTask().execute();
+
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        new GetDataTask().execute();
        mostrarPerfil();
     }
 
@@ -253,6 +254,9 @@ public class FragmentoPerfil extends Fragment implements View.OnClickListener {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
 
+            Intent intent = new Intent(getActivity(), EditarPerfil.class);
+            startActivity(intent);
+
         }if (view.getId()==R.id.ivButLogro){
             context = getContext();
             CharSequence text = "Aqui se podra visualizar el detalle de tus logros";
@@ -260,12 +264,19 @@ public class FragmentoPerfil extends Fragment implements View.OnClickListener {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
 
+            Intent intent = new Intent(getActivity(), Logro.class);
+            startActivity(intent);
+
         } if (view.getId()==R.id.ivButRanking){
+
             context = getContext();
             CharSequence text = "Aqui se podra visualizar el detalle del Ranking";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
+
+            Intent intent = new Intent(getActivity(), Ranking.class);
+            startActivity(intent);
         }
     }
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tesis2.lifestyle.Ranking">
+
+    <include layout="@layout/tool_bar_menu"
+        android:id="@+id/include" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Ranking"
+        android:id="@+id/textView"
+        android:layout_below="@+id/include"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvDetalleRanking"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconDieta1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloDieta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Dieta"
+        android:layout_alignTop="@+id/iconDieta1"
+        android:layout_toRightOf="@+id/iconDieta1"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionDieta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloDieta1"
+        android:layout_toRightOf="@+id/iconDieta1" />
+    <com.parse.ParseImageView
+        android:id="@+id/iconDieta2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/iconDieta1"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloDieta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Dieta"
+        android:layout_alignTop="@+id/iconDieta2"
+        android:layout_toRightOf="@id/iconDieta2"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionDieta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloDieta2"
+        android:layout_toRightOf="@id/iconDieta2" />
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconDieta3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/iconDieta2"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloDieta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Dieta"
+        android:layout_alignTop="@+id/iconDieta3"
+        android:layout_toRightOf="@id/iconDieta2"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionDieta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloDieta3"
+        android:layout_toRightOf="@id/iconDieta3" />
+
+</RelativeLayout>

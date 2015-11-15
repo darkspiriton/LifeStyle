@@ -18,9 +18,12 @@ public class DispatchActivity extends Activity {
 
             //Si la sesion esta activa lo enviar al Menu de Actividades
 
-            if (currentUser.getBoolean("evaluation") == false){
+            if (currentUser.getString("estado").equals("nuevo")){
                 startActivity(new Intent(this, RiskWelcomeActivity.class));
-            } else {
+            } if (currentUser.getString("estado").equals("evaluado")){
+                //aqui se volvera a evaluar para brindar nuevas recomendaciones
+                //y cambiara su estado a sin evaluar
+            }if (currentUser.getString("estado").equals("sin evaluar")) {
                 startActivity(new Intent(this,MenuActivity.class));
             }
 

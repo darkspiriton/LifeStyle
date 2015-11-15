@@ -15,11 +15,10 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/app_name"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <activity android:name=".Login" />
         <activity android:name=".Registro" />
-
         <activity android:name=".DispatchActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,12 +26,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".RiskActivity"
             android:label="@string/title_activity_risk"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".RiskWelcomeActivity" >
+        </activity>
+        <activity
+            android:name=".Logro"
+            android:label="@string/title_activity_logro"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Ranking"
+            android:label="@string/title_activity_ranking"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".EditarPerfil"
+            android:label="@string/title_activity_editar"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+
+        <activity android:name=".Ejercicio"
+            android:label="@string/title_activity_ejercicio"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+
+        <activity android:name=".Dieta"
+            android:label="@string/title_activity_dieta"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
         </activity>
     </application>
 

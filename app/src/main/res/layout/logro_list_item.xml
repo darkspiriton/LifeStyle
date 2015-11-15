@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconLogro"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloLogro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Logro"
+        android:layout_alignTop="@+id/iconLogro"
+        android:layout_toRightOf="@id/iconLogro"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionLogro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloLogro"
+        android:layout_toRightOf="@id/iconLogro" />
+    <TextView
+        android:id="@+id/listaPuntosLogro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntos"
+        android:layout_below="@+id/listaDescripcionLogro"
+        android:layout_toRightOf="@id/iconLogro" />
+    <TextView
+        android:id="@+id/listaFechaLogro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:layout_below="@+id/listaPuntosLogro"
+        android:layout_toRightOf="@id/iconLogro" />
+
+</RelativeLayout>

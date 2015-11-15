@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconEjercicio1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloEjercicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Ejercicio"
+        android:layout_alignTop="@+id/iconEjercicio1"
+        android:layout_toRightOf="@+id/iconEjercicio1"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionEjercicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloEjercicio1"
+        android:layout_toRightOf="@+id/iconEjercicio1" />
+
+    <TextView
+        android:id="@+id/listaRepeticionEjercicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="repeticiones"
+        android:layout_below="@+id/listaDescripcionEjercicio1"
+        android:layout_toRightOf="@+id/iconEjercicio1" />
+
+    <TextView
+        android:id="@+id/listaDuracionEjercicio1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="duracion"
+        android:layout_below="@+id/listaRepeticionEjercicio1"
+        android:layout_toRightOf="@+id/iconEjercicio1" />
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconEjercicio2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/iconEjercicio1"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloEjercicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Ejercicio"
+        android:layout_alignTop="@+id/iconEjercicio2"
+        android:layout_toRightOf="@id/iconEjercicio2"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionEjercicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloEjercicio2"
+        android:layout_toRightOf="@id/iconEjercicio2" />
+
+    <TextView
+        android:id="@+id/listaRepeticionEjercicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="repeticiones"
+        android:layout_below="@+id/listaDescripcionEjercicio2"
+        android:layout_toRightOf="@+id/iconEjercicio2" />
+
+    <TextView
+        android:id="@+id/listaDuracionEjercicio2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="duracion"
+        android:layout_below="@+id/listaRepeticionEjercicio2"
+        android:layout_toRightOf="@+id/iconEjercicio2" />
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconEjercicio3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/iconEjercicio2"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaTituloEjercicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Ejercicio"
+        android:layout_alignTop="@+id/iconEjercicio3"
+        android:layout_toRightOf="@id/iconEjercicio3"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaDescripcionEjercicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:layout_below="@+id/listaTituloEjercicio3"
+        android:layout_toRightOf="@id/iconEjercicio3" />
+
+    <TextView
+        android:id="@+id/listaRepeticionEjercicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="repeticiones"
+        android:layout_below="@+id/listaDescripcionEjercicio3"
+        android:layout_toRightOf="@+id/iconEjercicio3" />
+
+    <TextView
+        android:id="@+id/listaDuracionEjercicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="duracion"
+        android:layout_below="@+id/listaRepeticionEjercicio3"
+        android:layout_toRightOf="@+id/iconEjercicio3" />
+
+</RelativeLayout>

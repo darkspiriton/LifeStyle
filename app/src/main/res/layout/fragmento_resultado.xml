@@ -3,11 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#fff2f0e8">
+        android:background="#fff2f0e8"
+        android:layout_weight="1">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,43 +32,43 @@
             android:background="#daf7da">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1">
                 <TextView
                     android:id="@+id/tvResultadoDetallePunto"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:text="11 Puntos"
                     android:gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-
+                    android:textStyle="bold"
+                    android:textSize="15sp"
                     android:background="#daf7da"
-                    android:layout_weight="2"/>
+                    android:layout_weight="1"/>
                 <TextView
                     android:id="@+id/tvResultadoDetallePorcentaje"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:text="55%"
                     android:gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     android:background="#daf7da"
-                    android:layout_weight="2"/>
+                    android:layout_weight="1"/>
 
             </LinearLayout>
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
                     android:layout_weight="1"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:id="@+id/tvDetalleRiesgoNivel"
+                    android:id="@+id/tvDetalleResumenRiesgoNivel"
                     android:text="Riesgo Alto"
                     android:background="#daf7da"
-                    android:textSize="16dp"
+                    android:textSize="25sp"
                     android:gravity="center"
                     android:textStyle="bold"
                     android:padding="5dp"/>
@@ -86,14 +88,15 @@
         <TextView
             android:id="@+id/tvResultadoResumenDetalle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:text="Usted tiene tal ..."
             android:layout_below="@+id/tvResultadoResumen"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="50sp"
-            android:background="#daf7da"/>
+            android:background="#daf7da"
+            android:padding="5dp"
+            android:textStyle="italic"
+            android:layout_weight="1"
+            android:clickable="true"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

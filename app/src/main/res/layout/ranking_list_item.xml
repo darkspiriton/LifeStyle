@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconRanking"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/smile"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip" />
+
+    <TextView
+        android:id="@+id/listaPosicionRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posicion"
+        android:layout_alignTop="@+id/iconLogro"
+        android:layout_toRightOf="@id/iconRanking"
+        android:textColor="#FF0000" />
+
+    <TextView
+        android:id="@+id/listaUserRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:layout_below="@+id/listaPosicionRanking"
+        android:layout_toRightOf="@id/iconRanking" />
+    <TextView
+        android:id="@+id/listaPuntosRanking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Puntos"
+        android:layout_below="@+id/listaUserRanking"
+        android:layout_toRightOf="@id/iconRanking" />
+
+</RelativeLayout>
