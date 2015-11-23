@@ -4,44 +4,65 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
 
+
+
     <com.parse.ParseImageView
         android:id="@+id/iconLogro"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:src="@drawable/smile"
         android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip" />
+        android:layout_marginRight="15dip"
+        />
 
     <TextView
         android:id="@+id/listaTituloLogro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Titulo Logro"
-        android:layout_alignTop="@+id/iconLogro"
-        android:layout_toRightOf="@id/iconLogro"
-        android:textColor="#FF0000" />
+        android:layout_toRightOf="@+id/iconLogro"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:id="@+id/listaDescripcionLogro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripcion"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/listaTituloLogro"
-        android:layout_toRightOf="@id/iconLogro" />
+        android:layout_toRightOf="@id/iconLogro"
+        android:layout_marginBottom="15dip"/>
     <TextView
         android:id="@+id/listaPuntosLogro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puntos"
-        android:layout_below="@+id/listaDescripcionLogro"
-        android:layout_toRightOf="@id/iconLogro" />
+        android:text="5"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:layout_marginRight="5dip"
+        android:layout_alignBottom="@+id/iconLogro"
+        android:layout_toLeftOf="@+id/listaPuntosLogroPuntos"
+        android:layout_toStartOf="@+id/listaPuntosLogroPuntos" />
+    <TextView
+        android:id="@+id/listaPuntosLogroPuntos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="p"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignBottom="@+id/listaPuntosLogro"
+        android:layout_alignRight="@+id/listaFechaLogro"
+        android:layout_alignEnd="@+id/listaFechaLogro" />
     <TextView
         android:id="@+id/listaFechaLogro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_below="@+id/listaPuntosLogro"
-        android:layout_toRightOf="@id/iconLogro" />
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dip"/>
 
 </RelativeLayout>

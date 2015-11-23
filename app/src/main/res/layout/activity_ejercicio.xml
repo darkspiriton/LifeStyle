@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tesis2.lifestyle.Ejercicio">
+    tools:context="com.tesis2.lifestyle.Ejercicio"
+    android:background="#daf7da">
 
     <include layout="@layout/tool_bar_menu"
         android:id="@+id/include" />
@@ -14,7 +15,11 @@
         android:text="Lista de ejercicios"
         android:id="@+id/tvTituloEjercicio"
         android:layout_below="@+id/include"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dip"
+        android:textSize="25dip"
+        android:textColor="#446449"
+        android:textStyle="bold"/>
 
     <ListView
         android:layout_width="wrap_content"

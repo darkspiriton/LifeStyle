@@ -38,31 +38,24 @@ public class HistorialAdapter extends ParseQueryAdapter<ParseObject> {
 
         super.getItemView(object, v, parent);
 
-        // Add and download the image
-        /**
-        ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.icon);
-        ParseFile imageFile = object.getParseFile("image");
-        if (imageFile != null) {
-            todoImage.setParseFile(imageFile);
-            todoImage.loadInBackground();
-        }
-         **/
-
-        // Add the title view
         TextView titleTextView = (TextView) v.findViewById(R.id.text1);
-        titleTextView.setText(object.getString("user"));
+        if (object.getBoolean("evaluado")==true ){
+            titleTextView.setText("Evaluado");
+        } else {
+            titleTextView.setText("Sin Evaluar");
+        }
 
         // Add the title view
         TextView titleTextView2 = (TextView) v.findViewById(R.id.text2);
-        titleTextView2.setText(Integer.toString(object.getInt("result")));
+        titleTextView2.setText("Puntos obtenidos: " + Integer.toString(object.getInt("result")));
 
         // Add the title view
         TextView titleTextView3 = (TextView) v.findViewById(R.id.text3);
-        titleTextView3.setText(Integer.toString(object.getInt("riskLevel")));
+        titleTextView3.setText("Nivel de Riesgo obtenido: " + Integer.toString(object.getInt("riskLevel")));
 
         // Add the title view
         TextView titleTextView4 = (TextView) v.findViewById(R.id.text4);
-        titleTextView4.setText(Boolean.toString(object.getBoolean("evaluado")));
+        titleTextView4.setText("Usuario: " + object.getString("user"));
 
         // Add the title view
         TextView titleTextView5 = (TextView) v.findViewById(R.id.text5);

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <com.parse.ParseImageView
+        android:id="@+id/iconForo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/especialista"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/listaTituloForo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo Foro"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_toRightOf="@+id/iconForo"
+        android:layout_marginTop="15dip"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="10dip" />
+
+    <TextView
+        android:id="@+id/listaDescripcionForo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/listaTituloForo"
+        android:layout_toRightOf="@+id/iconForo"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:id="@+id/listaCantidadCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cantidad"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_below="@+id/listaDescripcionForo"
+        android:layout_toRightOf="@+id/iconForo"
+        android:layout_marginRight="5dip"/>
+
+</RelativeLayout>

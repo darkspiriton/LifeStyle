@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+
+    android:weightSum="1">
+
+    <include layout="@layout/tool_bar_menu"
+        android:id="@+id/include" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#daf7da">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/llPerfil"
+            android:weightSum="3"
+            android:background="#daf7da">
+
+            <!-- Imagen de perfil -->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/fotoPerfil"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                app:civ_border_width="4dp"
+                app:civ_border_color="#4bb53f"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/doctor"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/llRiesgoNivel"
+                android:layout_weight="2"
+                android:weightSum="3"
+                android:padding="24dp"
+
+                >
+                <!-- Nombre de Usuario -->
+                <TextView
+                    android:id="@+id/nombreDetalleDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold"
+                    android:layout_weight="1" />
+
+                <!-- Correo de la cuenta -->
+
+                <!-- Boton editar -->
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="Contactar Doctor"
+                    android:id="@+id/butDetalleDoctor"
+                    android:background="#4bb53f"
+                    android:textColor="#ffffffff"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="DETALLE"
+            android:id="@+id/tvTituloPuntos"
+            android:layout_below="@+id/llPerfil"
+            android:background="#8ef48e"
+            android:gravity="center"
+            android:textColor="#446449"
+            android:textStyle="bold"
+            android:padding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+
+            android:orientation="horizontal"
+            android:id="@+id/llPerfil2"
+            android:weightSum="5"
+            android:layout_below="@id/tvTituloPuntos"
+            android:background="#daf7da">
+
+            <TextView
+                android:id="@+id/tv1DetalleDoctor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="#daf7da"
+                android:textStyle="bold"
+                android:textColor="#383838"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="EXPERIENCIA"
+            android:id="@+id/tvTituloLogro"
+            android:background="#8ef48e"
+            android:layout_below="@id/llPerfil2"
+            android:gravity="center"
+            android:textColor="#446449"
+            android:textStyle="bold"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:orientation="horizontal"
+            android:id="@+id/llPerfil3"
+            android:weightSum="5"
+            android:layout_below="@id/tvTituloLogro"
+            android:background="#daf7da">
+
+            <TextView
+                android:id="@+id/tv2DetalleDoctor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:background="#daf7da"
+                android:textColor="#383838"/>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="CONTACTO"
+            android:id="@+id/tvTituloRanking"
+            android:background="#8ef48e"
+            android:layout_below="@id/llPerfil3"
+            android:gravity="center"
+            android:textColor="#446449"
+            android:textStyle="bold"
+            android:padding="5dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/llRanking1"
+            android:layout_below="@+id/tvTituloRanking"
+            android:weightSum="3"
+            android:background="#daf7da"
+            android:visibility="visible"
+            android:clickable="true">
+            <TextView
+                android:id="@+id/tv3DetalleDoctor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="#daf7da"
+                android:textColor="#383838"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

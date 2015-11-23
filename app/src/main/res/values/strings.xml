@@ -22,5 +22,9 @@
     <string name="title_activity_editar">Editar Perfil</string>
     <string name="title_activity_ejercicio">Lista de Ejercicios</string>
     <string name="title_activity_dieta">Lista de Dietas</string>
+    <string name="title_activity_doctor">Doctores</string>
+    <string name="title_activity_detalle_doctor">Detalle Doctor</string>
+    <string name="title_activity_detalle_tema">Temas</string>
+    <string name="title_activity_detalle_mensaje">Comentarios</string>
 </resources>
 

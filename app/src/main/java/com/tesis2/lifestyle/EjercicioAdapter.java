@@ -43,7 +43,7 @@ public class EjercicioAdapter  extends ParseQueryAdapter<ParseObject> {
 
         // Add and download the image
 
-        ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.iconEjercicio1);
+        ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.iconForo);
         ParseFile imageFile = object.getParseFile("imagenE1");
         if (imageFile != null) {
             todoImage.setParseFile(imageFile);
@@ -74,11 +74,11 @@ public class EjercicioAdapter  extends ParseQueryAdapter<ParseObject> {
 
         // Add the title view
         TextView titleTextView7 = (TextView) v.findViewById(R.id.listaRepeticionEjercicio1);
-        titleTextView7.setText(Integer.toString(object.getInt("repeticionE1")));
+        titleTextView7.setText("Repeticiones: "+Integer.toString(object.getInt("repeticionE1")));
 
         // Add the title view
         TextView titleTextView8 = (TextView) v.findViewById(R.id.listaDuracionEjercicio1);
-        titleTextView8.setText(Integer.toString(object.getInt("duracionE1")));
+        titleTextView8.setText("Duracion: "+Integer.toString(object.getInt("duracionE1"))+" min");
 
 
         // Add the title view
@@ -91,11 +91,11 @@ public class EjercicioAdapter  extends ParseQueryAdapter<ParseObject> {
 
         // Add the title view
         TextView titleTextView9 = (TextView) v.findViewById(R.id.listaRepeticionEjercicio2);
-        titleTextView9.setText(Integer.toString(object.getInt("repeticionE2")));
+        titleTextView9.setText("Repeticiones: "+Integer.toString(object.getInt("repeticionE2")));
 
         // Add the title view
         TextView titleTextView10 = (TextView) v.findViewById(R.id.listaDuracionEjercicio2);
-        titleTextView10.setText(Integer.toString(object.getInt("duracionE2")));
+        titleTextView10.setText("Duracion: "+Integer.toString(object.getInt("duracionE2"))+" min");
 
         // Add the title view
         TextView titleTextView5 = (TextView) v.findViewById(R.id.listaTituloEjercicio3);
@@ -107,11 +107,11 @@ public class EjercicioAdapter  extends ParseQueryAdapter<ParseObject> {
 
         // Add the title view
         TextView titleTextView11 = (TextView) v.findViewById(R.id.listaRepeticionEjercicio3);
-        titleTextView11.setText(Integer.toString(object.getInt("repeticionE3")));
+        titleTextView11.setText("Repeticiones: "+Integer.toString(object.getInt("repeticionE3")));
 
         // Add the title view
         TextView titleTextView12 = (TextView) v.findViewById(R.id.listaDuracionEjercicio3);
-        titleTextView12.setText(Integer.toString(object.getInt("duracionE3")));
+        titleTextView12.setText("Duracion: "+Integer.toString(object.getInt("duracionE3"))+" min");
 
 
 

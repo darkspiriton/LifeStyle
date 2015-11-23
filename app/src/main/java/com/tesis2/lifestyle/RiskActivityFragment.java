@@ -238,7 +238,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                                 foto.execute();
 
 
-                                Intent intent = new Intent(getActivity(),MenuActivity.class);
+                                Intent intent = new Intent(getActivity(),LogroRiskActivity.class);
                                 startActivity(intent);
 
 

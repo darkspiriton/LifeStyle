@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tesis2.lifestyle" >
+    package="com.tesis2.lifestyle">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -11,7 +11,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MenuActivity"
             android:label="@string/app_name"
@@ -19,7 +19,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Login" />
         <activity android:name=".Registro" />
-        <activity android:name=".DispatchActivity" >
+        <activity android:name=".DispatchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,13 +30,12 @@
             android:name=".RiskActivity"
             android:label="@string/title_activity_risk"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".RiskWelcomeActivity" >
-        </activity>
+        <activity android:name=".RiskWelcomeActivity" />
         <activity
             android:name=".Logro"
             android:label="@string/title_activity_logro"
             android:parentActivityName=".MenuActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tesis2.lifestyle.MenuActivity" />
@@ -45,7 +44,7 @@
             android:name=".Ranking"
             android:label="@string/title_activity_ranking"
             android:parentActivityName=".MenuActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tesis2.lifestyle.MenuActivity" />
@@ -54,28 +53,66 @@
             android:name=".EditarPerfil"
             android:label="@string/title_activity_editar"
             android:parentActivityName=".MenuActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tesis2.lifestyle.MenuActivity" />
         </activity>
-
-        <activity android:name=".Ejercicio"
+        <activity
+            android:name=".Ejercicio"
             android:label="@string/title_activity_ejercicio"
             android:parentActivityName=".MenuActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Dieta"
+            android:label="@string/title_activity_dieta"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Doctor"
+            android:label="@string/title_activity_doctor"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".DetalleDoctor"
+            android:label="@string/title_activity_detalle_doctor"
+            android:parentActivityName=".Doctor"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tesis2.lifestyle.Doctor" />
+        </activity>
+        <activity android:name=".LogroRiskActivity" />
+        <activity android:name=".LogroEvaluacionActivity" />
+
+        <activity android:name=".Tema"
+            android:label="@string/title_activity_detalle_tema"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tesis2.lifestyle.MenuActivity" />
         </activity>
 
-        <activity android:name=".Dieta"
-            android:label="@string/title_activity_dieta"
-            android:parentActivityName=".MenuActivity"
-            android:theme="@style/AppTheme" >
+        <activity android:name=".Mensaje"
+            android:label="@string/title_activity_detalle_mensaje"
+            android:parentActivityName=".Tema"
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.tesis2.lifestyle.MenuActivity" />
+                android:value="com.tesis2.lifestyle.Tema" />
         </activity>
     </application>
 

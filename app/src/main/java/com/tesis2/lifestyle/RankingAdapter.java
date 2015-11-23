@@ -15,8 +15,8 @@ import com.parse.ParseUser;
  * Created by StOn on 13/11/2015.
  */
 public class RankingAdapter extends ParseQueryAdapter<ParseUser> {
-    int i=-11;
 
+    int i=0;
     public RankingAdapter(Context context) {
         // Use the QueryFactory to construct a PQA that will only show
         // Todos marked as high-pri
@@ -26,8 +26,8 @@ public class RankingAdapter extends ParseQueryAdapter<ParseUser> {
                 ParseQuery<ParseUser> query = ParseUser.getQuery();
                 query.orderByDescending("puntos");
                 query.setLimit(10);
-
                 return query;
+
             }
         });
     }
@@ -35,8 +35,10 @@ public class RankingAdapter extends ParseQueryAdapter<ParseUser> {
     // Customize the layout by overriding getItemView
     @Override
     public View getItemView(ParseUser object, View v, ViewGroup parent) {
+
         if (v == null) {
             v = View.inflate(getContext(), R.layout.ranking_list_item, null);
+            i++;
         }
 
         super.getItemView(object, v, parent);
@@ -48,20 +50,26 @@ public class RankingAdapter extends ParseQueryAdapter<ParseUser> {
         if (imageFile != null) {
             todoImage.setParseFile(imageFile);
             todoImage.loadInBackground();
+
         }
+
+
+
 
         // Add the title view
         TextView titleTextView = (TextView) v.findViewById(R.id.listaPosicionRanking);
-        titleTextView.setText(Integer.toString(i));
+        titleTextView.setText(Integer.toString(i)+".");
+
+
 
         // Add the title view
         TextView titleTextView2 = (TextView) v.findViewById(R.id.listaUserRanking);
         titleTextView2.setText(object.getUsername());
 
         // Add the title view
-        TextView titleTextView3 = (TextView) v.findViewById(R.id.listaPuntosRanking);
+        TextView titleTextView3 = (TextView) v.findViewById(R.id.listaPuntosRanking1);
         titleTextView3.setText(Integer.toString(object.getInt("puntos")));
-        i++;
+
         return v;
     }
 }

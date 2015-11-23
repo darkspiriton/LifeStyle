@@ -117,7 +117,6 @@
                 android:layout_gravity="center"
                 android:text="1"
                 android:gravity="center"
-                android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textSize="40sp"
                 android:background="#daf7da"
                 android:textStyle="bold"
@@ -248,8 +247,7 @@
                     android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textSize="30sp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:background="#daf7da"
                     android:layout_weight="1"
                     android:textStyle="bold"/>

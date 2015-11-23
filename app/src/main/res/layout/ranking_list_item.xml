@@ -6,35 +6,53 @@
 
     <com.parse.ParseImageView
         android:id="@+id/iconRanking"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:src="@drawable/smile"
         android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip" />
+        android:layout_marginRight="15dip"/>
 
     <TextView
         android:id="@+id/listaPosicionRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Posicion"
+        android:text="1"
         android:layout_alignTop="@+id/iconLogro"
         android:layout_toRightOf="@id/iconRanking"
-        android:textColor="#FF0000" />
+        android:textColor="@color/colorPrimary"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"/>
 
     <TextView
         android:id="@+id/listaUserRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="UserName"
-        android:layout_below="@+id/listaPosicionRanking"
-        android:layout_toRightOf="@id/iconRanking" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="italic"
+        android:layout_toRightOf="@id/listaPosicionRanking"
+        android:layout_centerVertical="true"/>
     <TextView
-        android:id="@+id/listaPuntosRanking"
+        android:id="@+id/listaPuntosRanking1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puntos"
-        android:layout_below="@+id/listaUserRanking"
-        android:layout_toRightOf="@id/iconRanking" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="25"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/listaPuntosRanking2"
+        android:layout_toStartOf="@+id/listaPuntosRanking2" />
+    <TextView
+        android:id="@+id/listaPuntosRanking2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="p"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="15dip"
+        android:textSize="15dip"/>
+
 
 </RelativeLayout>
