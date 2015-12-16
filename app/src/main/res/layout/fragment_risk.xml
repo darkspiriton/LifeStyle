@@ -39,7 +39,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Menos de 45 años"
+                android:text="Menos de 20 años"
                 android:id="@+id/r1_1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -48,7 +48,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 45 y 54 años"
+                android:text="Entre 20 y  29 años"
                 android:id="@+id/r1_2"
                 android:layout_below="@+id/r1_1"
                 android:layout_alignParentLeft="true"
@@ -58,7 +58,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Entre 55 y 64 años"
+                android:text="Entre 30 y 40 años"
                 android:id="@+id/r1_3"
                 android:layout_below="@+id/r1_2"
                 android:layout_alignParentLeft="true"
@@ -68,7 +68,7 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mayor de 64 años"
+                android:text="Mayor de 40 años"
                 android:id="@+id/r1_4"
                 android:layout_below="@+id/r1_3"
                 android:layout_alignParentLeft="true"

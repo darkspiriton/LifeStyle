@@ -10,7 +10,8 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dip"
-        android:layout_marginRight="15dip"/>
+        android:layout_marginRight="15dip"
+        android:src="@drawable/hombre"/>
 
     <TextView
         android:id="@+id/listaPosicionRanking"

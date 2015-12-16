@@ -233,10 +233,10 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                                 risk.saveInBackground();
 
                                 currentUser.saveInBackground();
-
+                                /**
                                 foto foto= new foto();
                                 foto.execute();
-
+                                **/
 
                                 Intent intent = new Intent(getActivity(),LogroRiskActivity.class);
                                 startActivity(intent);
@@ -273,15 +273,15 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                     break;
                 case R.id.r1_2:
                     if (checked)
-                        r1=2;
+                        r1=0;
                     break;
                 case R.id.r1_3:
                     if (checked)
-                        r1=3;
+                        r1=0;
                     break;
                 case R.id.r1_4:
                     if (checked)
-                        r1=4;
+                        r1=2;
                     break;
                 case R.id.rg1_1:
                     if (checked)
@@ -400,7 +400,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                                 horario.put("desayuno", dieta.getString("nombre"));
                                 horario.put("risk", dieta.getInt("risk"));
                                 horario.put("descripcionDesayuno", dieta.getString("descripcion"));
-                                //horario.put("imagenDesayuno", dieta.getParseFile("imagen"));
+                                horario.put("imagenDesayuno", dieta.getParseFile("imagen"));
                                 horario.saveInBackground();
                             }else {
 
@@ -436,7 +436,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                                 ParseObject dieta = dietas2.get(i);
                                 horario.put("almuerzo", dieta.getString("nombre"));
                                 horario.put("descripcionAlmuerzo", dieta.getString("descripcion"));
-                                //horario.put("imagenAlmuerzo", dieta.getParseFile("imagen"));
+                                horario.put("imagenAlmuerzo", dieta.getParseFile("imagen"));
                                 horario.saveInBackground();
                             }else {
 
@@ -472,7 +472,7 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                                 ParseObject dieta = dietas3.get(i);
                                 horario.put("cena", dieta.getString("nombre"));
                                 horario.put("descripcionCena", dieta.getString("descripcion"));
-                                //horario.put("imagenCena", dieta.getParseFile("imagen"));
+                                horario.put("imagenCena", dieta.getParseFile("imagen"));
                                 horario.saveInBackground();
                             }else {
 
@@ -517,21 +517,21 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
                                 horario.put("nombreE1", ejercicio1.getString("nombre"));
                                 horario.put("risk", ejercicio1.getInt("risk"));
                                 horario.put("descripcionE1", ejercicio1.getString("descripcion"));
-                                //horario.put("imagenE1", ejercicio1.getParseFile("imagen"));
+                                horario.put("imagenE1", ejercicio1.getParseFile("imagen"));
                                 horario.put("duracionE1", ejercicio1.getInt("duracion"));
                                 horario.put("repeticionE1", ejercicio1.getInt("repeticion"));
 
                                 ParseObject ejercicio2 = ejercicios.get(i2);
                                 horario.put("nombreE2", ejercicio2.getString("nombre"));
                                 horario.put("descripcionE2", ejercicio2.getString("descripcion"));
-                                //horario.put("imagenE2", ejercicio2.getParseFile("imagen"));
+                                horario.put("imagenE2", ejercicio2.getParseFile("imagen"));
                                 horario.put("duracionE2", ejercicio1.getInt("duracion"));
                                 horario.put("repeticionE2", ejercicio1.getInt("repeticion"));
 
                                 ParseObject ejercicio3 = ejercicios.get(i3);
                                 horario.put("nombreE3", ejercicio3.getString("nombre"));
                                 horario.put("descripcionE3", ejercicio3.getString("descripcion"));
-                                //horario.put("imagenE3", ejercicio3.getParseFile("imagen"));
+                                horario.put("imagenE3", ejercicio3.getParseFile("imagen"));
                                 horario.put("duracionE3", ejercicio1.getInt("duracion"));
                                 horario.put("repeticionE3", ejercicio1.getInt("repeticion"));
                                 horario.saveInBackground();
@@ -552,14 +552,12 @@ public class RiskActivityFragment extends Fragment implements View.OnClickListen
     }
 
     public class foto extends  AsyncTask<Void, Void, String>{
-
-
         @Override
         protected String doInBackground(Void... voids) {
-            recomendacionDietaUser();
-            recomendacionEjercicioUser();
-            agregarFotoPerfil();
 
+            //recomendacionDietaUser();
+            //recomendacionEjercicioUser();
+            //agregarFotoPerfil();
 
             return "Termino" ;
         }

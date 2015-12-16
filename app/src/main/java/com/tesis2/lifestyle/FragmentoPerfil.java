@@ -90,7 +90,7 @@ public class FragmentoPerfil extends Fragment implements View.OnClickListener {
         nombre.setText(currentUser.getString("firstName")+" "+currentUser.getString("lastName"));
         correo.setText(currentUser.getEmail());
         puntos.setText(Integer.toString(currentUser.getInt("puntos")));
-
+/**
         ParseFile imagen = currentUser.getParseFile("photo");
         if (imagen != null) {
             imagen.getDataInBackground(new GetDataCallback() {
@@ -104,6 +104,7 @@ public class FragmentoPerfil extends Fragment implements View.OnClickListener {
                 }
             });
         }
+ **/
     }
 
     private void logroOnline(){

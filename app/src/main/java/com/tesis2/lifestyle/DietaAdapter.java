@@ -23,10 +23,8 @@ public class DietaAdapter extends ParseQueryAdapter<ParseObject> {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery create() {
 
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("HorarioDieta");
-                query.whereEqualTo("userId", ParseUser.getCurrentUser().getObjectId());
-                query.whereEqualTo("estado", true);
-
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Dieta");
+                query.whereEqualTo("risk", ParseUser.getCurrentUser().getInt("riskLevel"));
                 return query;
             }
         });
@@ -44,50 +42,19 @@ public class DietaAdapter extends ParseQueryAdapter<ParseObject> {
         // Add and download the image
 
         ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.iconDieta1);
-        ParseFile imageFile = object.getParseFile("imagenDesayuno");
+        ParseFile imageFile = object.getParseFile("imagen");
         if (imageFile != null) {
             todoImage.setParseFile(imageFile);
             todoImage.loadInBackground();
         }
 
-        ParseImageView todoImage2 = (ParseImageView) v.findViewById(R.id.iconDieta2);
-        ParseFile imageFile2 = object.getParseFile("imagenAlmuerzo");
-        if (imageFile != null) {
-            todoImage2.setParseFile(imageFile2);
-            todoImage2.loadInBackground();
-        }
-
-        ParseImageView todoImage3 = (ParseImageView) v.findViewById(R.id.iconDieta3);
-        ParseFile imageFile3 = object.getParseFile("imagenCena");
-        if (imageFile != null) {
-            todoImage3.setParseFile(imageFile3);
-            todoImage3.loadInBackground();
-        }
-
         // Add the title view
         TextView titleTextView1 = (TextView) v.findViewById(R.id.listaTituloDieta1);
-        titleTextView1.setText(object.getString("desayuno"));
+        titleTextView1.setText(object.getString("nombre"));
 
         // Add the title view
         TextView titleTextView2 = (TextView) v.findViewById(R.id.listaDescripcionDieta1);
-        titleTextView2.setText(object.getString("descripcionDesayuno"));
-
-        // Add the title view
-        TextView titleTextView3 = (TextView) v.findViewById(R.id.listaTituloDieta2);
-        titleTextView3.setText(object.getString("almuerzo"));
-
-        // Add the title view
-        TextView titleTextView4 = (TextView) v.findViewById(R.id.listaDescripcionDieta2);
-        titleTextView4.setText(object.getString("descripcionAlmuerzo"));
-
-        // Add the title view
-        TextView titleTextView5 = (TextView) v.findViewById(R.id.listaTituloDieta3);
-        titleTextView5.setText(object.getString("cena"));
-
-        // Add the title view
-        TextView titleTextView6 = (TextView) v.findViewById(R.id.listaDescripcionDieta3);
-        titleTextView6.setText(object.getString("descripcionCena"));
-
+        titleTextView2.setText(object.getString("descripcion"));
 
 
         return v;

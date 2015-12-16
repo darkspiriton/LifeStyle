@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Tema">
+
+
+
+    <item
+        android:id="@+id/action_nuevo"
+        android:icon="@drawable/ic_action_new"
+        android:title="Nuevo Tema"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>

@@ -23,10 +23,8 @@ public class EjercicioAdapter  extends ParseQueryAdapter<ParseObject> {
         super(context, new ParseQueryAdapter.QueryFactory<ParseObject>() {
             public ParseQuery create() {
 
-                ParseQuery<ParseObject> query = ParseQuery.getQuery("HorarioEjercicio");
-                query.whereEqualTo("userId", ParseUser.getCurrentUser().getObjectId());
-                query.whereEqualTo("estado", true);
-
+                ParseQuery<ParseObject> query = ParseQuery.getQuery("Ejercicio");
+                query.whereEqualTo("risk", ParseUser.getCurrentUser().getInt("riskLevel"));
                 return query;
             }
         });
@@ -44,75 +42,28 @@ public class EjercicioAdapter  extends ParseQueryAdapter<ParseObject> {
         // Add and download the image
 
         ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.iconForo);
-        ParseFile imageFile = object.getParseFile("imagenE1");
+        ParseFile imageFile = object.getParseFile("imagen");
         if (imageFile != null) {
             todoImage.setParseFile(imageFile);
             todoImage.loadInBackground();
         }
 
-        ParseImageView todoImage2 = (ParseImageView) v.findViewById(R.id.iconEjercicio2);
-        ParseFile imageFile2 = object.getParseFile("imagenE2");
-        if (imageFile != null) {
-            todoImage2.setParseFile(imageFile2);
-            todoImage2.loadInBackground();
-        }
-
-        ParseImageView todoImage3 = (ParseImageView) v.findViewById(R.id.iconEjercicio2);
-        ParseFile imageFile3 = object.getParseFile("imagenE3");
-        if (imageFile != null) {
-            todoImage3.setParseFile(imageFile3);
-            todoImage3.loadInBackground();
-        }
 
         // Add the title view
         TextView titleTextView1 = (TextView) v.findViewById(R.id.listaTituloEjercicio1);
-        titleTextView1.setText(object.getString("nombreE1"));
+        titleTextView1.setText(object.getString("nombre"));
 
         // Add the title view
         TextView titleTextView2 = (TextView) v.findViewById(R.id.listaDescripcionEjercicio1);
-        titleTextView2.setText(object.getString("descripcionE1"));
+        titleTextView2.setText(object.getString("descripcion"));
 
         // Add the title view
         TextView titleTextView7 = (TextView) v.findViewById(R.id.listaRepeticionEjercicio1);
-        titleTextView7.setText("Repeticiones: "+Integer.toString(object.getInt("repeticionE1")));
+        titleTextView7.setText("Repeticiones: "+Integer.toString(object.getInt("repeticion")));
 
         // Add the title view
         TextView titleTextView8 = (TextView) v.findViewById(R.id.listaDuracionEjercicio1);
-        titleTextView8.setText("Duracion: "+Integer.toString(object.getInt("duracionE1"))+" min");
-
-
-        // Add the title view
-        TextView titleTextView3 = (TextView) v.findViewById(R.id.listaTituloEjercicio2);
-        titleTextView3.setText(object.getString("nombreE2"));
-
-        // Add the title view
-        TextView titleTextView4 = (TextView) v.findViewById(R.id.listaDescripcionEjercicio2);
-        titleTextView4.setText(object.getString("descripcionE2"));
-
-        // Add the title view
-        TextView titleTextView9 = (TextView) v.findViewById(R.id.listaRepeticionEjercicio2);
-        titleTextView9.setText("Repeticiones: "+Integer.toString(object.getInt("repeticionE2")));
-
-        // Add the title view
-        TextView titleTextView10 = (TextView) v.findViewById(R.id.listaDuracionEjercicio2);
-        titleTextView10.setText("Duracion: "+Integer.toString(object.getInt("duracionE2"))+" min");
-
-        // Add the title view
-        TextView titleTextView5 = (TextView) v.findViewById(R.id.listaTituloEjercicio3);
-        titleTextView5.setText(object.getString("nombreE3"));
-
-        // Add the title view
-        TextView titleTextView6 = (TextView) v.findViewById(R.id.listaDescripcionEjercicio3);
-        titleTextView6.setText(object.getString("descripcionE3"));
-
-        // Add the title view
-        TextView titleTextView11 = (TextView) v.findViewById(R.id.listaRepeticionEjercicio3);
-        titleTextView11.setText("Repeticiones: "+Integer.toString(object.getInt("repeticionE3")));
-
-        // Add the title view
-        TextView titleTextView12 = (TextView) v.findViewById(R.id.listaDuracionEjercicio3);
-        titleTextView12.setText("Duracion: "+Integer.toString(object.getInt("duracionE3"))+" min");
-
+        titleTextView8.setText("Duracion: "+Integer.toString(object.getInt("duracion"))+" min");
 
 
         return v;

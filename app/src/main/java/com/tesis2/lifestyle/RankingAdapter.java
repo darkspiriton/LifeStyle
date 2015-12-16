@@ -5,8 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.parse.ParseFile;
-import com.parse.ParseImageView;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
@@ -44,7 +42,7 @@ public class RankingAdapter extends ParseQueryAdapter<ParseUser> {
         super.getItemView(object, v, parent);
 
         // Add and download the image
-
+/**
         ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.iconRanking);
         ParseFile imageFile = object.getParseFile("photo");
         if (imageFile != null) {
@@ -52,7 +50,7 @@ public class RankingAdapter extends ParseQueryAdapter<ParseUser> {
             todoImage.loadInBackground();
 
         }
-
+**/
 
 
 
